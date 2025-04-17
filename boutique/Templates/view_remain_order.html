@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{% static 'images/fevicon/fevicon.png' %}" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+
+  <title> </title>
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+          SAIKA DESIGNS
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/product">Products</a>
+              </li>
+
+              {% if not request.session.userid %}
+              <li class="nav-item">
+                <a class="nav-link" href="/Login">Login</a>
+              </li>
+              {% else %}
+               <li class="nav-item">
+                <a class="nav-link" href="/my_profile">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/my_orders">My Orders</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="/Logout">Logout</a>
+              </li>
+              {% endif %}
+              <li class="nav-item">
+                <a class="nav-link" href="/cart/view/">Cart</a>
+              </li>
+            </ul>
+            <div class="user_optio_box">
+              <a href="">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+            <div class="main-content">
+                <div class="product-section px-0 px-md-0 px-lg-3 mt-150">
+                    <div class="container">
+                         <div class="row">
+
+                               <div class="col-lg-8">
+                                <div class="card shadow-sm border-0 border-radius-12 mb-4">
+                                    <div class="card-body p-4">
+                                        <div class="row align-items-center mb-3">
+                                            <!-- Title -->
+                                            <div class="col-12 col-md-auto mb-0 mb-md-0 d-flex">
+                                                <h5 class="fw-bold text-start text-md-start">Summary</h5>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p>Your Product's Work is Completed<b></b> by Boutique,Complete your Full payment.After Payment The boutique will call for delivery support</p>
+
+        <table>
+<tr>
+        <td><form id="pay" action="/save_full_payment/{{data1.id}}" method="post">{% csrf_token %}</td>
+        </tr>
+            <tr>
+        <td width="50%">Order ID:</td>
+        <td width="50%"><b>#{{ data1.id }}</b></td>
+    </tr>
+    <tr>
+        <td width="50%">Date:</td>
+        <td width="50%"><b>{{ data1.created_at }}</b></td>
+    </tr>
+    <tr>
+        <td width="50%">Total:</td>
+        <td width="50%"><b>{{ data1.total_cost }}</b></td>
+    </tr>
+                                               <tr>
+        <td width="50%">Advance:</td>
+        <td width="50%"><b>{{ data1.advance }}</b></td>
+    </tr>
+             <tr>
+        <td width="50%">Balance Amount:</td>
+        <td width="50%"><b>{{ balance }}</b></td>
+    </tr>
+            <tr>
+                <td>
+            <input type="hidden" name="order_id" value="{{razorpay_order_id}}">
+
+        <input type="hidden" id="payment_id" name="payment_id" value="{{payment_id}}">
+           </td> </tr>
+            <tr>
+        <button type="submit" class="btn btn-info" id="rzp1-button">Pay Now {{balance}}</button>
+            </tr>
+
+                                              </form>
+</table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                            </div>
+                         </div>
+
+                    </div>
+                </div>
+           </div>
+
+        </div>
+    </div>
+     <!--**********************************
+    ***********************************-->
+ <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+ <script  src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script  src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script  src="{% static 'assets/plugin/chart/chart.js' %}"></script>
+    <script  src="{% static 'assets/js/chart.js' %}"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+    var options = {
+        "key": "{{ razorpay_merchant_key }}", // Enter the Key ID generated from the Dashboard
+        "amount": "{{ razorpay_amount }}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "{{ currency }}",
+        "name": "test",
+        "description": "Test Transaction",
+        "image": "https://example.com/your_logo",
+        "order_id": "{{razorpay_order_id}}", //This is a sample Order ID. Pass the id obtained in the response of Step 1
+        "handler": function (response){
+            $('#payment_id').val(response.razorpay_payment_id)
+            document.getElementById('pay').submit();
+        },
+        "prefill": {
+            "name": "Your Name",
+            "email": "youremail@gmail.com",
+            "contact": "1234567890"
+        },
+        "notes": {
+            "address": "Razorpay Corporate Office"
+        },
+        "theme": {
+            "color": "rgb(104,222,238)"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response){
+        $('#myModal').modal();
+    });
+    document.getElementById('rzp1-button').onclick = function(e){
+
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>
+</body>
+</html>

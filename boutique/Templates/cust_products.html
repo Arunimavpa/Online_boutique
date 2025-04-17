@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{% static 'images/fevicon/fevicon.png' %}" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+
+  <title> </title>
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+          SAIKA DESIGNS
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/product">Products</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact Us</a>
+              </li>
+              {% if not request.session.userid %}
+              <li class="nav-item">
+                <a class="nav-link" href="/Login">Login</a>
+              </li>
+              {% else %}
+               <li class="nav-item">
+                <a class="nav-link" href="/my_profile">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/my_orders">My Orders</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="/Logout">Logout</a>
+              </li>
+              {% endif %}
+              <li class="nav-item">
+                <a class="nav-link" href="/cart/view/">Cart</a>
+              </li>
+            </ul>
+            <div class="user_optio_box">
+              <a href="">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+            <div class="main-content">
+                <div class="extra-header"></div>
+                <div class="card-service-section px-0 px-md-0 px-lg-3">
+                    <div class="container-fluid">
+                    </div>
+                </div>
+                <div class="product-section px-0 px-md-0 px-lg-3 mt-80">
+                    <div class="container">
+                        <div class="card shadow-sm border-0 border-radius-12">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center mb-3">
+                                    <!-- Title -->
+                                    <div class="col-6 col-md-auto mb-0 mb-md-0 d-flex">
+                                        <h5 class="fw-bold text-start text-md-start">Order List</h5>
+                                    </div>
+                                    <!-- Filters and Sort -->
+                                    <div class="col-6 col-md d-flex justify-content-end flex-wrap gap-2">
+                                        <!-- Filter Dropdown -->
+                                    </div>
+                                </div>
+<div class="table-responsive">
+    <table class="table align-middle">
+        <thead>
+            <tr>
+                <th scope="col" class="py-3">Order No</th>
+                <th scope="col" class="py-3">Dress Name</th>
+                <th scope="col" class="py-3">Fabric</th>
+                <th scope="col" class="py-3">Color</th>
+                <th scope="col" class="py-3">Size</th>
+                <th scope="col" class="py-3">Neck Design</th>
+                <th scope="col" class="py-3">Measurements (Bust/Waist/Hips/Length)</th>
+                <th scope="col" class="py-3">Delivery Date</th>
+                <th scope="col"  class="py-3">Status</th>
+                <th scope="col" class="py-3">Work status</th>
+                <th scope="col" class="py-3">Payment status</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in data %}
+            <tr>
+                <td>#{{ order.id }}</td>
+                <td>{{ order.dress_name }}</td>
+                <td>{{ order.fabric }}</td>
+                <td>{{ order.color }}</td>
+                <td>{{ order.size }}</td>
+                <td>
+                    {{ order.neck_design }}
+                    {% if order.neck_design == "custom" %}
+                        <br><small>({{ order.custom_neck_design }})</small>
+                    {% endif %}
+                </td>
+                <td>{{ order.bust }}" / {{ order.waist }}" / {{ order.hips }}" / {{ order.length }}"</td>
+                <td>{{ order.delivery_date }}</td>
+                <td><span class="status-badge status-success">{{ order.status }}</span></td>
+                {% if order.status == "Approved" and order.payment_status == "Pending" %}
+                <td><a href="/view_custom_order/{{ order.id }}" class="btn btn-primary">View Details</a></td>
+                {% endif %}
+          <td class="btn btn-info">{{ order.work_status }}</td>
+
+                {% if order.payment_status == "Completed" %}
+                {% if order.work_status == "Delivered" %}
+                <td><a href="/view_remain_order/{{ order.id }}" class="btn btn-primary">Pay Remaining</a></td>
+                {% endif %}
+                {% elif order.payment_status == "Full Payment Completed" %}
+                <td>Fully Completed</td>
+                {% else %}
+                <td>Advance {{ order.payment_status }}</td>
+
+                {% endif %}
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+                            </div>
+                        </div>
+                         <!-- pagination -->
+                        <!-- end pagination -->
+                    </div>
+                </div>
+           </div>
+
+        </div>
+    </div>
+     <!--**********************************
+        Main wrapper end
+    ***********************************-->
+ <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+ <script  src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script  src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script  src="{% static 'assets/plugin/chart/chart.js' %}"></script>
+    <script  src="{% static 'assets/js/chart.js' %}"></script>
+</body>
+</html>

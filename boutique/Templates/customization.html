@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saika Designs - Custom Dress Order</title>
+    <link rel="stylesheet" href="{% static 'css/customstyle.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>Saika Designs</h1>
+        <p>Tailored to Perfection: Custom Dresses Just for You</p>
+    </header>
+
+    <section class="form-section">
+        <h2>Submit Your Customization</h2>
+        <form id="customizationForm" method="post" action="/save_custom/" enctype="multipart/form-data">{% csrf_token %}
+
+            <!-- Dress Model -->
+            <label for="dressModel">Dress Model:</label>
+<select id="dressModel" name="dressModel" onchange="updateFabricOptions()">
+    <option value="eveningGown">Evening Gown</option>
+    <option value="summerDress">Summer Dress</option>
+    <option value="formalSuit">Formal Suit</option>
+    <option value="weddingDress">Wedding Dress</option>
+</select>
+            <!-- Fabric Choice -->
+           <label for="fabric">Preferred Fabric Choice:</label>
+<select id="fabric" name="fabric">
+    <!-- Options will be updated dynamically -->
+</select>
+
+            <!-- Color Choice -->
+            <label for="color-text">Enter Your Preferred Color:</label>
+            <input type="text" id="color-text" name="color-text" placeholder="e.g., Red, Blue, Mint Green">
+
+
+
+            <!-- Size Selection -->
+            <label for="size">Select Size:</label>
+            <select id="size" name="size">
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="Custom">Custom</option>
+            </select>
+
+            <!-- Neck Design Option -->
+            <label for="neck">Neck Design:</label>
+            <select id="neck" name="neck" onchange="toggleCustomNeckField()">
+                <option value="round">Round</option>
+                <option value="v-neck">V-Neck</option>
+                <option value="square">Square</option>
+                <option value="halter">Halter</option>
+                <option value="custom">Custom</option>
+            </select>
+
+            <!-- Custom Neck Design Input (Hidden by Default) -->
+            <div id="customNeckDiv" style="display: none;">
+                <label for="custom-neck">Enter Custom Neck Design:</label>
+                <input type="text" id="custom-neck" name="custom-neck" placeholder="Describe your custom design">
+            </div>
+
+            <!-- Measurements -->
+            <h3>Measurements (in inches)</h3>
+            <label for="bust">Bust:</label>
+            <input type="number" id="bust" name="bust" required>
+
+            <label for="waist">Waist:</label>
+            <input type="number" id="waist" name="waist" required>
+
+            <label for="hips">Hips:</label>
+            <input type="number" id="hips" name="hips" required>
+
+            <label for="length">Dress Length:</label>
+            <input type="number" id="length" name="length" required>
+
+
+            <!-- Delivery Date -->
+<label for="delivery-date">Preferred Delivery Date:</label>
+<input type="date" id="delivery-date" name="delivery-date" required min="" />
+
+
+            <!-- Upload Reference Image -->
+            <label for="reference">Upload Reference Image:</label>
+            <input type="file" id="reference" name="reference" accept="image/*" required>
+
+            <!-- Additional Details -->
+            <label for="details">Additional Details:</label>
+            <textarea id="details" name="details" rows="4" placeholder="Mention any special design requests..."></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Order</button>
+
+        </form>
+
+        <p id="responseMessage"></p>
+    </section>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        function toggleCustomNeckField() {
+            var neckDropdown = document.getElementById("neck");
+            var customNeckDiv = document.getElementById("customNeckDiv");
+
+            if (neckDropdown.value === "custom") {
+                customNeckDiv.style.display = "block";
+            } else {
+                customNeckDiv.style.display = "none";
+            }
+        }
+
+    function updateFabricOptions() {
+        var dressModel = document.getElementById("dressModel").value;
+        var fabricDropdown = document.getElementById("fabric");
+
+        // Define fabric options based on dress model
+        var fabricOptions = {
+            "eveningGown": ["Silk", "Chiffon", "Satin"],
+            "summerDress": ["Cotton", "Linen", "Chiffon"],
+            "formalSuit": ["Linen", "Cotton", "Velvet"],
+            "weddingDress": ["Silk", "Satin", "Lace"]
+        };
+
+        // Clear existing options
+        fabricDropdown.innerHTML = "";
+
+        // Add new fabric options
+        fabricOptions[dressModel].forEach(function (fabric) {
+            var option = document.createElement("option");
+            option.value = fabric.toLowerCase();
+            option.textContent = fabric;
+            fabricDropdown.appendChild(option);
+        });
+    }
+
+    // Initialize fabric options on page load
+    document.addEventListener("DOMContentLoaded", function () {
+        updateFabricOptions(); // Set default fabric options
+    });
+
+      // Set minimum date for delivery date to today + 5 days
+    document.addEventListener("DOMContentLoaded", function () {
+        var today = new Date();
+        var minDate = new Date(today);
+        minDate.setDate(today.getDate() + 5); // Add 5 days to today's date
+
+        // Format the date to YYYY-MM-DD format for the input
+        var year = minDate.getFullYear();
+        var month = (minDate.getMonth() + 1).toString().padStart(2, '0'); // Adding leading zero if needed
+        var day = minDate.getDate().toString().padStart(2, '0'); // Adding leading zero if needed
+        var formattedDate = year + '-' + month + '-' + day;
+
+        document.getElementById("delivery-date").min = formattedDate;
+    });
+
+</script>
+
+</body>
+</html>

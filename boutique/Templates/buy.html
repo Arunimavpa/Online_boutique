@@ -1,0 +1,494 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{% static 'images/fevicon/fevicon.png' %}" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+
+  <title> </title>
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+          SAIKA DESIGNS
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/product">Products</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact Us</a>
+              </li>
+              {% if not request.session.userid %}
+              <li class="nav-item">
+                <a class="nav-link" href="/Login">Login</a>
+              </li>
+              {% else %}
+               <li class="nav-item">
+                <a class="nav-link" href="/my_profile">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/my_orders">My Orders</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="/Logout">Logout</a>
+              </li>
+              {% endif %}
+              <li class="nav-item">
+                <a class="nav-link" href="/cart/view/">Cart</a>
+              </li>
+            </ul>
+            <div class="user_option_box">
+              <a href="">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section" style="background-image:url({% static 'images/boutique.webp' %});background-repeat:no-repeat;background-size:cover;">
+    </section>
+    <!-- end slider section -->
+  </div>
+  <section class="hero_section text-center py-5 bg-light">
+    <h1>Buy Now..</h1>
+  </section>
+
+
+<section class="py-5">
+  <div class="container">
+    <div class="row gx-5">
+      <!-- Dress Image Box -->
+      <aside class="col-lg-6">
+        <div class="border rounded-4 p-3 text-center dress-box">
+          <img style="max-width: 100%; height: auto;" id="image" class="rounded-4" src="{{d.image.url}}" />
+        </div>
+      </aside>
+
+      <!-- Product Details Form -->
+      <main class="col-lg-6">
+        <div class="ps-lg-3">
+          <h4 class="title text-dark">
+            {{ d.name }} <br />
+            <span class="text-muted">{{ d.category.name }}</span>
+          </h4>
+
+          <div class="mb-3">
+            <span class="h5 text-primary" id="offerPrice">₹{{ d.offer_price }}</span>
+            <span class="text-muted">/per piece</span>
+          </div>
+
+          <p>{{ d.description }}</p>
+
+          <form method="POST" action="/cart/add/{{ d.id }}/">
+  {% csrf_token %}
+
+  <!-- Select Size -->
+  <!-- Select Size -->
+<div class="mb-3">
+  <label class="mb-2">Select Size</label>
+  <select class="form-select border border-secondary" name="size" required>
+    {% for i in size %}
+    <option value="{{ i }}">{{ i }}</option>
+    {% endfor %}
+  </select>
+</div>
+
+<!-- Size Chart Link -->
+<div class="mb-3">
+  <a href="javascript:void(0)" id="sizeChartLink" class="text-primary" onclick="toggleSizeChart()">View Size Chart</a>
+</div>
+
+<!-- Collapsible Size Chart -->
+<div id="sizeChartBox" class="size-chart-box" style="display: none;">
+  <h5>Size Chart</h5>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Size</th>
+        <th>Chest (in inches)</th>
+        <th>Waist (in inches)</th>
+        <th>Hip (in inches)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>XS</td>
+        <td>32-34</td>
+        <td>24-26</td>
+        <td>34-36</td>
+      </tr>
+      <tr>
+        <td>S</td>
+        <td>34-36</td>
+        <td>26-28</td>
+        <td>36-38</td>
+      </tr>
+      <tr>
+        <td>M</td>
+        <td>36-38</td>
+        <td>28-30</td>
+        <td>38-40</td>
+      </tr>
+      <tr>
+        <td>L</td>
+        <td>38-40</td>
+        <td>30-32</td>
+        <td>40-42</td>
+      </tr>
+      <tr>
+        <td>XL</td>
+        <td>40-42</td>
+        <td>32-34</td>
+        <td>42-44</td>
+      </tr>
+    <tr>
+        <td>XXL</td>
+        <td>42-44</td>
+        <td>34-36</td>
+        <td>44-46</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  <!-- Select Color -->
+  <div class="mb-3">
+    <label class="mb-2">Select Color</label>
+    <div class="d-flex flex-wrap">
+      {% for i in colors %}
+      <div class="text-center mx-2">
+        <button type="button" class="btn color-btn"
+          style="background-color:{{ i.color }};"
+          onclick="change_image('{{ i.image.url }}', '{{ i.color }}')">
+        </button>
+        <input type="hidden" name="image" value="{{ i.id }}" required>
+        <input type="radio" name="color" value="{{ i.color }}" >
+      </div>
+      {% endfor %}
+      <div class="text-center mx-2">
+       <input type="checkbox" id="default_color" name="default_color" onclick="change_image('{{ d.image.url }}', '{{ d.color }}')">Original Colour
+      </div>
+    </div>
+  </div>
+            <!-- Fabric, Pattern & WashCare -->
+            <div class="row">
+              <dt class="col-3">Fabric:</dt>
+              <dd class="col-9">{{ d.fabric }}</dd>
+              <dt class="col-3">Pattern:</dt>
+              <dd class="col-9">{{ d.Pattern }}</dd>
+              <dt class="col-3">Wash Care:</dt>
+              <dd class="col-9">{{ d.WashCare }}</dd>
+            </div>
+
+            <hr />
+
+
+            <!-- Quantity Selection -->
+            <div class="mb-3">
+              <label class="mb-2">Quantity</label>
+              <input type="number" id="quantityInput" name="quantity" class="form-control" value="1" min="1" required onchange="updateTotalPrice()">
+            </div>
+
+            <!-- Total Price Display -->
+
+            <div class="mb-3">
+  <h5>Total Price: <span class="total-price" id="totalPrice">₹{{ d.offer_price }}</span></h5>
+</div>
+            <div class="p ">
+
+
+  Order will be shipped in 10-18 working days from order date
+</p>
+  <p>
+  DISCLAIMER : SLIGHT VARIATIONS IN COLOUR CAN BE EXPECTED DUE TO PHOTOGRAPHIC LIGHTING SOURCES OR OUR DEVICE SETTINGS
+</p>
+              </div><p>
+            <!-- Buttons -->
+                  <button type="submit" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Buy Now</button>
+            <button type="submit" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to Cart</button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+
+<!-- Script -->
+<script>
+  function updateTotalPrice() {
+    let quantity = document.getElementById("quantityInput").value;
+    let offerPrice = parseFloat(document.getElementById("offerPrice").innerText.replace("₹", ""));
+    let totalPrice = offerPrice * quantity;
+    document.getElementById("totalPrice").innerText = "₹" + totalPrice.toFixed(2);
+  }
+function change_image(imageurl, color) {
+  document.getElementById("image").src = imageurl;
+
+  // Auto-select the color in the form
+  let colorInput = document.querySelector("input[name='color'][value='" + color + "']");
+  if (colorInput) {
+    colorInput.checked = true;
+  }
+}
+
+
+
+</script>
+
+
+<!-- Theme Styling -->
+<style>
+  body {
+    background-color: #F3EDE5; /* Soft beige for a warm boutique feel */
+    color: #4A2C2A; /* Dark brown for easy readability */
+  }
+  .btn-theme {
+    background-color: #8B4513;
+    color: white;
+    border: none;
+  }
+  .btn-theme:hover {
+    background-color: #A67B5B;
+  }
+  .btn-warning {
+    background-color: #A67B5B !important;
+    border: none;
+    color: white;
+  }
+  .btn-warning:hover {
+    background-color: #8B4513 !important;
+  }.color-btn ,.color-btn1{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+}
+
+  dt {
+    font-weight: bold;
+  }
+
+ .dress-box {
+  background-color: #F7F3EE; /* Soft Beige Background */
+  border: 2px solid #A67B5B; /* Elegant Brown Border */
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.color-btn ,.color-btn1{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+}
+
+.color-btn:hover {
+  border: 2px solid black;
+}
+
+.text-muted {
+  color: #6E3B2E !important;
+}
+
+input[type="number"] {
+  text-align: center;
+  font-weight: bold;
+}
+.total-price {
+  color: #995F31 !important; /* Bronze-Brown for contrast */
+  font-weight: 700;
+  font-size: 22px;
+  background-color: #E8D9C9; /* Light Beige Background */
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+.quantity-input {
+  width: 40px; /* Small square size */
+  height: 40px;
+  text-align: center;
+  border: 2px solid #A67B5B; /* Warm Brown border */
+  border-radius: 5px;
+  font-weight: bold;
+  color: #995F31; /* Bronze Brown */
+  background-color: #E8D9C9; /* Light Beige */
+}
+.size-chart-box {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  .size-chart-box table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .size-chart-box table th,
+  .size-chart-box table td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+
+  .size-chart-box h5 {
+    margin-bottom: 10px;
+  }
+  .p{
+  text-align: left;
+  font-weight: bold;
+  color: #4A2C2A;
+  }
+
+</style>
+
+<!-- content -->
+
+<!--<section class="bg-light border-top py-4">-->
+<!--  <div class="container">-->
+<!--    <div class="row gx-4">-->
+<!--      <div class="col-lg-8 mb-4">-->
+
+<!--        <div class="px-0 border rounded-2 shadow-0">-->
+<!--          <div class="card">-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Similar items</h5>-->
+<!--              <div class="d-flex mb-3">-->
+<!--                <a href="#" class="me-3">-->
+<!--                  <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/8.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />-->
+<!--                </a>-->
+<!--                <div class="info">-->
+<!--                  <a href="#" class="nav-link mb-1">-->
+<!--                    Rucksack Backpack Large <br />-->
+<!--                    Line Mounts-->
+<!--                  </a>-->
+<!--                  <strong class="text-dark"> $38.90</strong>-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--              <div class="d-flex mb-3">-->
+<!--                <a href="#" class="me-3">-->
+<!--                  <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/9.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />-->
+<!--                </a>-->
+<!--                <div class="info">-->
+<!--                  <a href="#" class="nav-link mb-1">-->
+<!--                    Summer New Men's Denim <br />-->
+<!--                    Jeans Shorts-->
+<!--                  </a>-->
+<!--                  <strong class="text-dark"> $29.50</strong>-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--              <div class="d-flex mb-3">-->
+<!--                <a href="#" class="me-3">-->
+<!--                  <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/10.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />-->
+<!--                </a>-->
+<!--                <div class="info">-->
+<!--                  <a href="#" class="nav-link mb-1"> T-shirts with multiple colors, for men and lady </a>-->
+<!--                  <strong class="text-dark"> $120.00</strong>-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--              <div class="d-flex">-->
+<!--                <a href="#" class="me-3">-->
+<!--                  <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/11.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />-->
+<!--                </a>-->
+<!--                <div class="info">-->
+<!--                  <a href="#" class="nav-link mb-1"> Blazer Suit Dress Jacket for Men, Blue color </a>-->
+<!--                  <strong class="text-dark"> $339.90</strong>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+ <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+
+<script>
+function change_image(imageurl, color) {
+  document.getElementById("image").src = imageurl;
+
+  // Auto-select the color in the form
+  let colorInput = document.querySelector("input[name='color'][value='" + color + "']");
+  if (colorInput) {
+    colorInput.checked = true;
+    document.getElementById("default_color").checked=false;
+  }
+}
+ function toggleSizeChart() {
+    var sizeChartBox = document.getElementById("sizeChartBox");
+    if (sizeChartBox.style.display === "none") {
+      sizeChartBox.style.display = "block";
+    } else {
+      sizeChartBox.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>

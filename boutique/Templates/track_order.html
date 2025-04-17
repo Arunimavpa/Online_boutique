@@ -1,0 +1,227 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{% static 'images/fevicon/fevicon.png' %}" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+
+  <title> </title>
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+<style>
+    .hh-grayBox {
+	background-color: #F8F8F8;
+	margin-bottom: 20px;
+	padding: 35px;
+  margin-top: 20px;
+}
+.pt45{padding-top:45px;}
+.order-tracking{
+	text-align: center;
+	width: 33.33%;
+	position: relative;
+	display: block;
+}
+.order-tracking .is-complete{
+	display: block;
+	position: relative;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	border: 0px solid #AFAFAF;
+	background-color: #f7be16;
+	margin: 0 auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+	z-index: 2;
+}
+.order-tracking .is-complete:after {
+	display: block;
+	position: absolute;
+	content: '';
+	height: 14px;
+	width: 7px;
+	top: -2px;
+	bottom: 0;
+	left: 5px;
+	margin: auto 0;
+	border: 0px solid #AFAFAF;
+	border-width: 0px 2px 2px 0;
+	transform: rotate(45deg);
+	opacity: 0;
+}
+.order-tracking.completed .is-complete{
+	border-color: #27aa80;
+	border-width: 0px;
+	background-color: #27aa80;
+}
+.order-tracking.completed .is-complete:after {
+	border-color: #fff;
+	border-width: 0px 3px 3px 0;
+	width: 7px;
+	left: 11px;
+	opacity: 1;
+}
+.order-tracking p {
+	color: #A4A4A4;
+	font-size: 16px;
+	margin-top: 8px;
+	margin-bottom: 0;
+	line-height: 20px;
+}
+.order-tracking p span{font-size: 14px;}
+.order-tracking.completed p{color: #000;}
+.order-tracking::before {
+	content: '';
+	display: block;
+	height: 3px;
+	width: calc(100% - 40px);
+	background-color: #f7be16;
+	top: 13px;
+	position: absolute;
+	left: calc(-50% + 20px);
+	z-index: 0;
+}
+.order-tracking:first-child:before{display: none;}
+.order-tracking.completed:before{background-color: #27aa80;}
+
+</style>
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+          SAIKA DESIGNS
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/product">Products</a>
+              </li>
+
+              {% if not request.session.userid %}
+              <li class="nav-item">
+                <a class="nav-link" href="/Login">Login</a>
+              </li>
+              {% else %}
+               <li class="nav-item">
+                <a class="nav-link" href="/my_profile">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/my_orders">My Orders</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="/Logout">Logout</a>
+              </li>
+              {% endif %}
+              <li class="nav-item">
+                <a class="nav-link" href="/cart/view/">Cart</a>
+              </li>
+            </ul>
+            <div class="user_optio_box">
+              <a href="">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+<div class="container">
+  <div class="row">
+						<div class="col-12 col-md-10 hh-grayBox pt45 pb20">
+							<div class="row justify-content-between">
+                              {% if data.status == "Delivered" %}
+								<div class="order-tracking completed">
+									<span class="is-complete"></span>
+									<p>Ordered<br><span>{{data.created_at|date:'Y-m-d'}}</span></p>
+								</div>
+								<div class="order-tracking completed">
+									<span class="is-complete"></span>
+									<p>Processed<br><span>{{data.p_date|date:'Y-m-d'}}</span></p>
+								</div>
+
+								<div class="order-tracking completed">
+									<span class="is-complete"></span>
+									<p>Delivered<br><span>{{data.d_date|date:'Y-m-d'}}</span></p>
+								</div>
+                              {% elif data.status == "Ordered" %}
+                              <div class="order-tracking completed">
+									<span class="is-complete"></span>
+									<p>Ordered<br><span>{{data.created_at|date:'Y-m-d'}}</span></p>
+								</div>
+								<div class="order-tracking">
+									<span class="is-complete"></span>
+									<p>Processed<br><span></span></p>
+								</div>
+                              <div class="order-tracking">
+									<span class="is-complete"></span>
+									<p>Delivered<br><span></span></p>
+								</div>
+                              {% elif data.status == "Processing" %}
+                              <div class="order-tracking completed">
+									<span class="is-complete"></span>
+									<p>Ordered<br><span>{{data.created_at|date:'Y-m-d'}}</span></p>
+								</div>
+								<div class="order-tracking completed">
+									<span class="is-complete"></span>
+									<p>Processed<br><span>{{data.p_date|date:'Y-m-d'}}</span></p>
+								</div>
+                              <div class="order-tracking">
+									<span class="is-complete"></span>
+									<p>Delivered<br><span></span></p>
+								</div>
+                              {% endif %}
+							</div>
+						</div>
+					</div>
+</div>
+
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+ <script  src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script  src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script  src="{% static 'assets/plugin/chart/chart.js' %}"></script>
+    <script  src="{% static 'assets/js/chart.js' %}"></script>
+</body>
+</html>

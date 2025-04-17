@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{% static 'images/fevicon/fevicon.png' %}" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+
+  <title> </title>
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+          SAIKA DESIGNS
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/product">Products</a>
+              </li>
+              {% if not request.session.userid %}
+              <li class="nav-item">
+                <a class="nav-link" href="/Login">Login</a>
+              </li>
+              {% else %}
+               <li class="nav-item">
+                <a class="nav-link" href="/my_profile">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/my_orders">My Orders</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="/customization">Customization</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cust_products">Customized products</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="/Logout">Logout</a>
+              </li>
+              {% endif %}
+              <li class="nav-item">
+                <a class="nav-link" href="/cart/view/">Cart</a>
+              </li>
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section" style="background-image:url({% static 'images/boutique.webp' %});background-repeat:no-repeat;background-size:cover;">
+    </section>
+    <!-- end slider section -->
+  </div>
+  <section class="hero_section text-center py-5 bg-light">
+    <h1>Review Your Selections</h1>
+    <p>Ready to Checkout?</p>
+  </section>
+
+
+  <section class="cart_section">
+    <div class="container">
+      <h2 class="text-center cart-title">Your Shopping Cart</h2>
+<table class="table table-bordered cart-table">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Size</th>
+      <th>Color</th>  <!-- ✅ Show Selected Color -->
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in cart_items %}
+    <tr>
+      <td>
+        {% if item.image %}
+        <img src="{{ item.image }}" width="70" height="100">
+        {% else %}
+        <img src="{{ item.product.image.url }}" width="70" height="100">
+        {% endif %}
+        <span>{{ item.product.name }}</span>
+      </td>
+      {% if item.size %}
+      <td>{{ item.size }}</td>
+
+      {% endif %}
+      <td>
+        {% if item.color %}
+        <div style="width: 20px; height: 20px; background-color: {{ item.color }}; border-radius: 50%; border: 1px solid #000;"></div>
+        <span>{{ item.color }}</span>  <!-- ✅ Display Color Name -->
+        {% endif %}</td>
+
+     <td>
+    <button class="btn btn-sm btn-secondary decrease-qty" data-item-id="{{ item.id }}">-</button>
+    <span class="cart-quantity" id="quantity-{{ item.id }}">{{ item.quantity }}</span>
+    <button class="btn btn-sm btn-secondary increase-qty" data-item-id="{{ item.id }}">+</button>
+</td>
+      <td>₹{{ item.product.offer_price }}</td>
+      <td>₹{{ item.total_price }}</td>
+      <td><a href="/remove-from-cart/{{ item.id }}/" class="btn btn-danger">Remove</a></td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="7" class="text-center">Your cart is empty</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+      <div class="cart-summary text-right">
+       <h2 class="cart-total">Total:  ₹{{ cart_total }}</h2>
+        <a href="/product/" class="btn btn-theme">Continue Shopping</a>
+        <a href="/checkout/" class="btn btn-theme">Proceed to Checkout</a>
+      </div>
+    </div>
+</section>
+
+
+
+
+  <footer class="footer_section">
+    <div class="container">
+      <p>&copy; <span id="displayYear"></span> All Rights Reserved By SAIKA DESIGNS</p>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+<script>
+  function changeQuantity(change, button, cartItemId) {
+    let rowElement = button.closest("tr");
+    let quantityElement = rowElement.querySelector(".quantity");
+    let priceElement = rowElement.querySelector(".cart-price");
+    let totalPriceElement = rowElement.querySelector(".cart-total-price");
+    let sizeElement = rowElement.querySelector(".cart-size"); // Get the selected size
+    let price = parseFloat(priceElement.innerText.replace("₹", "").trim());
+
+    let currentQuantity = parseInt(quantityElement.innerText);
+    let newQuantity = currentQuantity + change;
+
+    if (newQuantity < 1) newQuantity = 1; // Ensure quantity is at least 1
+
+    quantityElement.innerText = newQuantity;
+    totalPriceElement.innerText = "₹" + (price * newQuantity).toFixed(2);
+
+    // Get selected size (if applicable)
+    let selectedSize = sizeElement ? sizeElement.innerText : "Not Selected";
+
+    // Send AJAX request to update quantity and size in the database
+    $.ajax({
+      url: "/update-cart/",  // Django URL to handle the update
+      type: "POST",
+      data: {
+        cart_item_id: cartItemId,
+        quantity: newQuantity,
+        size: selectedSize,  // Send the selected size
+        csrfmiddlewaretoken: "{{ csrf_token }}"
+      },
+      success: function (response) {
+        // Update cart total dynamically
+        document.querySelector(".cart-total").innerText = "Total: ₹" + response.cart_total.toFixed(2);
+      },
+      error: function () {
+        alert("Error updating cart. Please try again.");
+      }
+    });
+  }
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    $(".increase-qty, .decrease-qty").click(function () {
+        let itemId = $(this).data("item-id");
+        let action = $(this).hasClass("increase-qty") ? "increase" : "decrease";
+
+        $.ajax({
+            url: "/update-cart-quantity/",  // Django View URL
+            type: "POST",
+            data: {
+                item_id: itemId,
+                action: action,
+                csrfmiddlewaretoken: "{{ csrf_token }}",  // Required for Django
+            },
+            success: function (response) {
+                if (response.status === "success") {
+                    $("#quantity-" + itemId).text(response.new_quantity);
+                    $(".cart-total").text("Total: ₹" + response.cart_total);
+                    $("#total-price-" + itemId).text("₹" + response.item_total_price);
+                }
+            },
+            error: function () {
+                alert("Error updating cart. Please try again.");
+            },
+        });
+    });
+});
+</script>
+
+</body>
+</html>

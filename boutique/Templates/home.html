@@ -1,0 +1,746 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+<style>
+   .chatbot-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #995f31;
+        color: white;
+        padding: 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+    }
+
+    .chat-container {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 300px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        display: none;
+        flex-direction: column;
+    }
+
+    .chat-header {
+        background-color: #995f31;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .chat-messages {
+        height: 200px;
+        overflow-y: auto;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chat-input {
+        display: flex;
+        border-top: 1px solid #ddd;
+    }
+
+    .chat-input input {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        outline: none;
+    }
+
+    .chat-input button {
+        background: #995f31;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    /* Styling for User and Bot Messages */
+    .message {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        max-width: 80%;
+        font-size: 14px;
+        display: inline-block;
+    }
+
+    .user-message {
+        background-color: #A67B5B;
+        color: white;
+        align-self: flex-end;
+        border-radius: 15px 15px 5px 15px;
+    }
+
+    .bot-message {
+        background-color: #f1f1f1;
+        color: #333;
+        align-self: flex-start;
+        border-radius: 15px 15px 5px 15px;
+    }
+  <!--  /* Search Box Styling */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #995f31;  /* Dark background for contrast */
+    border-radius: 25px;        /* Rounded corners */
+    padding: 5px 15px;          /* Space between icon and input */
+    max-width: 400px;           /* Set maximum width */
+    width: 100%;                /* Make it responsive */
+}
+
+.search-box input {
+    background-color: transparent;  /* Transparent background */
+    border: none;                    /* Remove default border */
+    color: #ffffff;                  /* White text color */
+    font-size: 16px;                 /* Font size for input text */
+    padding: 10px;                   /* Add some padding inside the input */
+    width: 100%;                     /* Make input take full width */
+    border-radius: 20px;             /* Rounded input corners */
+    margin-left: 10px;               /* Add space between icon and input */
+}
+
+.search-box i {
+    color: #ffffff;                /* White color for the icon */
+    font-size: 18px;                /* Icon size */
+}
+
+.search-box input::placeholder {
+    color: #cccccc;                /* Light grey placeholder text */
+}
+-->
+</style>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{% static 'images/fevicon/fevicon.png' %}" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+
+  <title> </title>
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+          SAIKA DESIGNS
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/product">Products</a>
+              </li>
+
+
+               {% if not request.session.userid %}
+               <li class="nav-item">
+                <a class="nav-link" href="/about"> About</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="https://wa.me/917559905999"> Contact us</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/Login">Login</a>
+              </li>
+
+              {% else %}
+               <li class="nav-item">
+                <a class="nav-link" href="/my_profile">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/my_orders">My Orders</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="/customization">Customization</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cust_products">Customized Products</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="/Logout">Logout</a>
+              </li>
+              {% endif %}
+               <li class="nav-item">
+                <a class="nav-link" href="/cart/view/">Cart</a>
+              </li>
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div class="slider_bg_box">
+        <img src="{% static 'images/slider.jpg' %}" alt="">
+      </div>
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+
+                    </h1>
+                    <p>
+                     Your Dream Dress Starts Here
+                    </p>
+                    <div class="btn-box">
+                      <a href="https://wa.me/917559905999" class="btn1">Contact Us</a>
+
+                      <a href="/about" class="btn2">
+                        About Us
+                      </a>
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <button class="chatbot-btn" onclick="toggleChat()">💬</button>
+
+<div class="chat-container" id="chatbox">
+    <div class="chat-header">Chatbot</div>
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+
+  <!-- service section -->
+
+  <section class="service_section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="box ">
+            <div class="img-box">
+              <img src="{% static 'images/feature-1.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Fast Delivery
+              </h5>
+              <p>
+
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="box ">
+            <div class="img-box">
+              <img src="{% static 'images/feature-2.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Free Shiping
+              </h5>
+              <p>
+
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="box ">
+            <div class="img-box">
+              <img src="{% static 'images/feature-3.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Best Quality
+              </h5>
+              <p>
+
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="box ">
+            <div class="img-box">
+              <img src="{% static 'images/feature-4.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+                <a href="https://wa.me/917559905999" target="_blank">
+              <h5>
+                24x7 Customer support
+              </h5>
+                </a>
+              <p>
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end service section -->
+
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img_container">
+            <div class="img-box b1">
+              <img src="{% static 'images/a-1.webp' %}" alt="">
+            </div>
+            <div class="img-box b2">
+              <img src="{% static 'images/a-2.webp' %}" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <h2>
+              About Our Shop
+            </h2>
+            <p>
+              "Welcome to our online boutique, where style meets elegance—offering a curated collection of fashion and accessories designed to elevate your wardrobe.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end about section -->
+
+
+  <!-- product section -->
+
+  <section class="product_section ">
+    <div class="container">
+      <div class="product_heading">
+        <h2>
+          Top Sale
+        </h2>
+      </div>
+      <div class="product_container">
+      {% for i in pdt1 %}
+        <div class="box">
+          <div class="box-content">
+            <div class="img-box">
+              <img src="{{i.image.url}}" alt="">
+            </div>
+            <div class="detail-box">
+              <div class="text">
+                <h6>
+                  {{i.name}}
+                </h6>
+                <h5>
+                  <span>₹</span> {{i.offer_price}}
+                </h5>
+              </div>
+              <div class="like">
+                <h6>
+                  Like
+                </h6>
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn-box">
+            <a href="">
+              Add To Cart
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- end product section -->
+
+
+  <!-- product section -->
+
+
+
+  <!-- end product section -->
+
+
+  <!-- product section -->
+
+  <section class="product_section ">
+    <div class="container">
+      <div class="product_heading">
+        <h2>
+          New Arrivals
+        </h2>
+      </div>
+      <div class="product_container">
+        {% for i in pdt %}
+        <div class="box">
+          <div class="box-content">
+            <div class="img-box">
+              <img src="{{i.image.url}}" alt="">
+            </div>
+            <div class="detail-box">
+              <div class="text">
+                <h6>
+                  {{i.name}}
+                </h6>
+                <h5>
+                  <span>₹</span> {{i.offer_price}}
+                </h5>
+              </div>
+              <div class="like">
+                <h6>
+                  Like
+                </h6>
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn-box">
+            <a href="">
+              Add To Cart
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- end product section -->
+
+  <!-- contact section -->
+  <section class="contact_section layout_padding" id="contact">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Contact Us
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <form action="/save_contact/" method="post">{% csrf_token %}
+              <div>
+                <input type="text" placeholder="Your Name" name="name" />
+              </div>
+              <div>
+                <input type="text" placeholder="Phone Number" name="phoneno" />
+              </div>
+              <div>
+                <input type="email" placeholder="Email" name="email"/>
+              </div>
+              <div>
+                <input type="text" class="message-box" placeholder="Message" name="message" />
+              </div>
+              <div class="btn_box">
+                <button>
+                  SEND
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6 ">
+          <div class="map_container">
+            <div class="map">
+              <div id="googleMap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+
+
+
+  <!-- info section -->
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="info_logo">
+        <h2>
+
+        </h2>
+      </div>
+      <div class="row">
+
+        <div class="col-md-3">
+          <div class="info_contact">
+            <h5>
+              About Shop
+            </h5>
+            <div>
+              <div class="img-box">
+                <img src="{% static 'images/location-white.png' %}" width="18px" alt="">
+              </div>
+              <p>
+                Address
+              </p>
+            </div>
+            <div>
+              <div class="img-box">
+                <img src="{% static 'images/telephone-white.png' %}" width="12px" alt="">
+              </div>
+              <p>
+                +91 7559905999
+              </p>
+            </div>
+            <div>
+              <div class="img-box">
+                <img src="{% static 'images/envelope-white.png' %}" width="18px" alt="">
+              </div>
+              <p>
+                saikadesigns@gmail.com
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_info">
+            <h5>
+              Informations
+            </h5>
+            <p>
+             Welcome to saika designs, your go-to destination for stylish and elegant fashion. We specialize in a wide range of dresses, ethnic wear, casual outfits, and accessories, ensuring that you always find something unique and trendy for every occasion.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="info_insta">
+            <h5>
+              Instagram
+            </h5>
+            <div class="insta_container">
+              <div class="row m-0">
+                <div class="col-4 px-0">
+                  <a href="">
+                    <div class="insta-box b-1">
+                      <img src="{% static 'images/w1.webp' %}" alt="">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-4 px-0">
+                  <a href="">
+                    <div class="insta-box b-1">
+                      <img src="{% static 'images/w2.webp' %}" alt="">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-4 px-0">
+                  <a href="">
+                    <div class="insta-box b-1">
+                      <img src="{% static 'images/w3.webp' %}" alt="">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-4 px-0">
+                  <a href="">
+                    <div class="insta-box b-1">
+                      <img src="{% static 'images/w4.webp' %}" alt="">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-4 px-0">
+                  <a href="">
+                    <div class="insta-box b-1">
+                      <img src="{% static 'images/w5.webp' %}" alt="">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-4 px-0">
+                  <a href="">
+                    <div class="insta-box b-1">
+                      <img src="{% static 'images/w6.webp' %}" alt="">
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="info_form ">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <img src="{% static 'images/fb.png' %}" alt="">
+              </a>
+              <a href="">
+                <img src="{% static 'images/twitter.png' %}" alt="">
+              </a>
+              <a href="">
+                <img src="{% static 'images/linkedin.png' %}" alt="">
+              </a>
+              <a href="">
+                <img src="{% static 'images/youtube.png' %}" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- jQery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- custom js -->
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+<script>
+    function toggleChat() {
+        var chatbox = document.getElementById("chatbox");
+        chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+    }
+
+    function sendMessage() {
+        var input = document.getElementById("user-input");
+        var message = input.value.trim();
+        if (message === "") return;
+
+        var chatMessages = document.getElementById("chat-messages");
+
+        // Create user message element
+        var userMsg = document.createElement("div");
+        userMsg.classList.add("message", "user-message");
+        userMsg.textContent = message;
+        chatMessages.appendChild(userMsg);
+
+        input.value = "";
+
+        // Scroll to the latest message
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Send user message to backend
+        fetch("http://127.0.0.1:8000/chatbot/", {  // Adjust URL if necessary
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ query: message })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Create bot message element
+            var botMsg = document.createElement("div");
+            botMsg.classList.add("message", "bot-message");
+            botMsg.textContent = data.response || "I'm sorry, I couldn't understand that.";
+            chatMessages.appendChild(botMsg);
+
+            // Scroll to the latest message
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            var botMsg = document.createElement("div");
+            botMsg.classList.add("message", "bot-message");
+            botMsg.textContent = "Something went wrong!";
+            chatMessages.appendChild(botMsg);
+        });
+    }
+</script>
+
+</body>
+
+</html>

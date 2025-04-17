@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <style>
+    @media print {
+        #printInvoice, .btn.custom-bg-primary {
+            display: none !important;
+        }
+    }
+</style>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Ecom Admin  Bootstrap 5 Template" />
+	<meta property="og:title" content="Ecom Admin  Bootstrap 5 Template" />
+	<meta property="og:description" content="Ecom  Admin  Bootstrap 5 Template" />
+	<meta property="og:image" content="#" />
+	<meta name="format-detection" content="telephone=no">
+    <title>Order List | MetroX Admin</title>
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/icons/fontawesome/css/fontawesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/icons/fontawesome/css/brands.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/icons/fontawesome/css/solid.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+     <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper" class="d-flex">
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="sidebar">
+               <div class="collapse-sidebar d-none d-lg-block"><span><i class="fa-solid fa-chevron-left"></i></span></div>
+               <div class="sidebar-header">
+                   <div class="lg-logo"><a href="/"><img src="{% static 'assets/images/logo.png' %}" alt="logo large"></a></div>
+                   <div class="sm-logo"><a href="/"><img src="{% static 'assets/images/sm-logo.jpg' %}" alt="logo small"></a></div>
+               </div>
+               <div class="sidebar-body  custom-scrollbar">
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-label">    </li>
+                        <li><a href="index.html" class="text-black sidebar-link active"><i class="fa-solid fa-house"></i><p>Dashboard</p></a></li>
+                        <li><a href="#" class="text-black sidebar-link submenu-parent"><i class="fa-solid fa-list"></i><p>Category <i class="fa-solid fa-angle-down right-icon"></i></p></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="/category_add" class="submenu-link">Add</a></li>
+                                <li><a href="/category_list" class="submenu-link">List</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="text-black sidebar-link submenu-parent"><i class="fa-brands fa-microsoft"></i><p>Products <i class="fa-solid fa-angle-down right-icon"></i></p></a>
+                            <ul class="sidebar-submenu">
+                               <li><a href="/product_add" class="submenu-link">Add</a></li>
+                                <li><a href="/product_list" class="submenu-link">List</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="text-black sidebar-link submenu-parent"><i class="fa-solid fa-bucket"></i><p>Order <i class="fa-solid fa-angle-down right-icon"></i></p></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="/order_list" class="submenu-link">Order List</a></li>
+                                <li><a href="/completed_list" class="submenu-link">Completed</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/user_list" class="text-black sidebar-link"><i class="fa-regular fa-user"></i><p>Customers</p></a></li>
+
+                        <li><a href="/customized_orders" class="text-black sidebar-link"><i class="fa-regular fa-user"></i><p>Customized Orders</p></a></li>
+                        <li><a href="/enquiries" class="text-black sidebar-link"><i class="fa-regular fa-user"></i><p>Customer Enquiries</p></a></li>
+
+                          </ul>
+               </div>
+        </div>        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <div class="content-wrapper">
+            <div class="header px-0 px-md-0 px-lg-3 pt-2 pt-sm-2 pt-md-2  pt-lg-4">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-6 col-lg-6 d-flex">
+                            <button class="menu-toggle btn btn-lg text-white d-block d-lg-none "><i class="fa-solid fa-bars"></i></button>
+                            <h1 class="header-title d-none d-lg-block ">Invoice</h1>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="product-section px-0 px-md-0 px-lg-3 mt-150">
+                    <div class="container">
+                        <div class="card shadow-sm border-0 border-radius-12" id="invoice-section">
+                            <div class="card-body p-4">
+                                <div class="invoice mt-5">
+                                            <div class="invoice-box">
+                                                <div class="invoice-header d-flex justify-content-between ">
+                                                <!--  <a class="pt-2 d-inline-block bg-success-color p-2" href="#" data-abc="true">
+                                                    <img src="./assets/images/logo.png" alt="logo large">
+                                                  </a> -->
+                                                    <div class="float-right">
+                                                        <h3 class="mb-0 invoice-no">Invoice #INV{{data1.id}}</h3>
+                                                       <span class="d-block invoice-date">{{today}}</span>
+                                                   </div>
+                                                </div>
+                                                <div class="invoice-body">
+                                                    <div class="row mb-4 d-flex">
+                                                        <div class="col-sm-6 invoice-adds">
+                                                            <h5 class="mb-2">From:</h5>
+                                                            <address>
+                                                                <strong>Saika Designs</strong><br>
+                                                                1234 Elm Street<br>
+                                                                kavilkadavu kodungallur, 680664<br>
+                                                                Thrissur<br>
+                                                                Phone: 7559905999<br>
+                                                                Email: saikadesigns@gmail.com
+                                                              </address>
+                                                        </div>
+                                                        <div class="col-sm-6 text-right d-flex justify-content-end invoice-adds">
+                                                             <div class="">
+                                                                <h5 class="mb-2">To:</h5>
+                                                                <address>
+                                                                    <strong>{{data1.full_name}}</strong><br>
+                                                                    {{data1.address}}<br>
+                                                                    {{data1.city}}, {{data1.postal_code}}<br>
+                                                                    Kerala<br>
+                                                                    Phone:{{data.1phone}}<br>
+                                                                    Email: {{data1.user.email}}
+                                                                </address>
+                                                             </div>
+                                                        </div>
+                                                        
+                                                     </div>
+                                                            <div class="table-responsive-sm">
+                                                                <table class="table table-striped">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>ID</th>
+                                                                            <th>Product</th>
+                                                                            <th>Quantity</th>
+                                                                            <th>Total</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    {% for i in data %}
+                                                                        <tr>
+                                                                            <td>{{i.id}}</td>
+                                                                            <td>{{i.product.name}}</td>
+                                                                            <td>{{i.quantity}}</td>
+                                                                            <td>{{i.price}}</td>
+                                                                        </tr>
+                                                                    {% endfor %}
+                                                                    </tbody>
+                                                                </table>
+                                                                <div class="row">
+                                                                    <div class="col-lg-4 col-sm-5">
+                                                                    </div>
+                                                                    <div class="col-lg-4 col-sm-5 ms-auto">
+                                                                        <table class="table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="left">
+                                                                                        <strong class="text-dark">Subtotal</strong>
+                                                                                    </td>
+                                                                                    <td class="right">{{data1.total_price}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td class="left">
+                                                                                        <strong class="text-dark">Total</strong> </td>
+                                                                                    <td class="right">
+                                                                                        <strong class="text-dark">{{data1.total_price}}</strong>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div> 
+                                                </div>
+                                                <hr>
+                                                <div class="invoice-footer">
+                                                    <p class="mb-0">Notice: </p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 text-end">
+                                                    <a  href="javascript:void(0)" class="btn text-primary border-color hover-bg-primary me-2" id="printInvoice"><i class="fa-solid fa-print"></i> Print</a>
+                                                    <button type="submit" class="btn custom-bg-primary text-white btn-hover"><i class="fa-solid fa-download"></i> Download</button>
+                                                </div>
+                                              </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+        </div>
+    </div>
+     <!--**********************************
+        Main wrapper end
+    ***********************************-->
+     <script  src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script  src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script  src="{% static 'assets/plugin/chart/chart.js' %}"></script>
+    <script  src="{% static 'assets/js/chart.js' %}"></script>
+    <script  src="{% static 'assets/main.js' %}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script>
+    document.getElementById("printInvoice").addEventListener("click", function () {
+        window.print();  // Opens print dialog
+    });
+
+    document.querySelector(".btn.custom-bg-primary").addEventListener("click", function () {
+        const { jsPDF } = window.jspdf;
+        let pdf = new jsPDF('p', 'mm', 'a4');
+
+        // Temporarily hide buttons
+        document.getElementById("printInvoice").style.display = "none";
+        document.querySelector(".btn.custom-bg-primary").style.display = "none";
+
+        html2canvas(document.getElementById("invoice-section"), { scale: 2 }).then(canvas => {
+            let imgData = canvas.toDataURL("image/png");
+            let imgWidth = 210; // A4 width in mm
+            let imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+            pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+            pdf.save("invoice.pdf");
+
+            // Restore button visibility
+            document.getElementById("printInvoice").style.display = "block";
+            document.querySelector(".btn.custom-bg-primary").style.display = "block";
+        });
+    });
+</script>
+
+
+</body>
+</html>

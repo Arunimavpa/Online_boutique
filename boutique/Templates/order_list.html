@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Ecom Admin  Bootstrap 5 Template" />
+	<meta property="og:title" content="Ecom Admin  Bootstrap 5 Template" />
+	<meta property="og:description" content="Ecom  Admin  Bootstrap 5 Template" />
+	<meta property="og:image" content="#" />
+	<meta name="format-detection" content="telephone=no">
+    <title>Order List | MetroX Admin</title>
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/icons/fontawesome/css/fontawesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/icons/fontawesome/css/brands.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/icons/fontawesome/css/solid.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+     <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper" class="d-flex">
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+                 <div class="sidebar">
+               <div class="collapse-sidebar d-none d-lg-block"><span><i class="fa-solid fa-chevron-left"></i></span></div>
+               <div class="sidebar-header">
+                   <div class="lg-logo"><a href="index.html"><img src="{% static 'assets/images/logo.png' %}" alt="logo large"></a></div>
+                   <div class="sm-logo"><a href="index.html"><img src="{% static 'assets/images/sm-logo.jpg' %}" alt="logo small"></a></div>
+               </div>
+               <div class="sidebar-body  custom-scrollbar">
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-label">    </li>
+                        <li><a href="/dashboard" class="text-black sidebar-link active"><i class="fa-solid fa-house"></i><p>Dashboard</p></a></li>
+                        <li><a href="#" class="text-black sidebar-link submenu-parent"><i class="fa-solid fa-list"></i><p>Category <i class="fa-solid fa-angle-down right-icon"></i></p></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="/category_add" class="submenu-link">Add</a></li>
+                                <li><a href="/category_list" class="submenu-link">List</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="text-black sidebar-link submenu-parent"><i class="fa-brands fa-microsoft"></i><p>Products <i class="fa-solid fa-angle-down right-icon"></i></p></a>
+                            <ul class="sidebar-submenu">
+                               <li><a href="/product_add" class="submenu-link">Add</a></li>
+                                <li><a href="/product_list" class="submenu-link">List</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="text-black sidebar-link submenu-parent"><i class="fa-solid fa-bucket"></i><p>Order <i class="fa-solid fa-angle-down right-icon"></i></p></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="/order_list" class="submenu-link">Order List</a></li>
+                                <li><a href="/completed_list" class="submenu-link">Completed</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/user_list" class="text-black sidebar-link"><i class="fa-regular fa-user"></i><p>Customers</p></a></li>
+
+                        <li><a href="/customized_orders" class="text-black sidebar-link"><i class="fa-regular fa-user"></i><p>Customized Orders</p></a></li>
+
+                          </ul>
+               </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <div class="content-wrapper">
+            <div class="header px-0 px-md-0 px-lg-3 pt-2 pt-sm-2 pt-md-2  pt-lg-4">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-6 col-lg-6 d-flex">
+                            <button class="menu-toggle btn btn-lg text-white d-block d-lg-none "><i class="fa-solid fa-bars"></i></button>
+                            <h1 class="header-title d-none d-lg-block ">Order</h1>
+                        </div>
+                        <div class="col-6 col-lg-6 d-flex justify-content-end">
+                            <div>
+                                <ul class="nav d-flex align-items-center">
+                                    <li class="nav-item">
+                                        <a class="nav-link notification notification-notify" href="#" id="Notification" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa-regular fa-bell"></i>
+                                        </a>
+                                        <div class="dropdown-menu" data-bs-popper="none">
+                                        <div id="Notification" class="h-380 scroll-y p-3 custom-scrollbar">
+                                            <ul class="timeline">
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2">
+                                                            <img alt="image" width="50" src="{% static 'assets/images/profile.png' %}">
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1">Dr Halk Send you Photo</h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2 media-info">
+                                                            HK
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1">Resport created successfully</h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2 media-success">
+                                                            <i class="fa fa-home"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1">Reminder : Treatment Time!</h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                    <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2">
+                                                            <img alt="image" width="50" src="{% static 'assets/images/profile.png' %}">
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1">Dr Halk Send you Photo</h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2 media-danger">
+                                                            HG
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1">Resport created successfully</h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2 media-primary">
+                                                            <i class="fa fa-home"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1">Reminder : Treatment Time!</h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <a class="all-notification" href="#">See all notifications <i class="fas fa-arrow-right"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img src="{% static 'assets/images/profile.png' %}" class="profile-img" alt="profile">
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li><a class="dropdown-item py-2" href="profile.html"><i class="fa-solid fa-user me-2 text-success"></i>Profile</a></li>
+                                        <li><a class="dropdown-item py-2" href="/Logout_admin"><i class="fa-solid fa-right-from-bracket me-2 text-danger"></i>Logout</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="extra-header"></div>
+                <div class="card-service-section px-0 px-md-0 px-lg-3">
+                    <div class="container-fluid">
+                        <div class="d-flex justify-content-between align-items-center bg-teal">
+                            <!-- Import Buttons -->
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-light d-flex align-items-center gap-2">
+                                  <i class="fa-solid fa-cloud-arrow-up"></i> Import
+                                </button>
+                              </div>
+                            <!-- Search Input -->
+                            <div class="search-box align-items-center  d-flex">
+                              <i class="fas fa-search text-light"></i>
+                              <input
+                                type="text"
+                                class="form-control border-0 bg-transparent text-light"
+                                placeholder="Search order"
+                              />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-section px-0 px-md-0 px-lg-3 mt-80">
+                    <div class="container">
+                        <div class="card shadow-sm border-0 border-radius-12">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center mb-3">
+                                    <!-- Title -->
+                                    <div class="col-6 col-md-auto mb-0 mb-md-0 d-flex">
+                                        <h5 class="fw-bold text-start text-md-start">Order List</h5>
+                                    </div>
+                                    <!-- Filters and Sort -->
+                                    <div class="col-6 col-md d-flex justify-content-end flex-wrap gap-2">
+                                        <!-- Filter Dropdown -->
+                                        <div class="dropdown">
+                                            <a class="nav-link custom-bg-primary text-white rounded px-3 py-2" href="#" id="FilterMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Filter By <i class="fas fa-filter"></i>
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="FilterMenuLink">
+                                                <li><a class="dropdown-item py-2" href="#">Pending</a></li>
+                                                <li><a class="dropdown-item py-2" href="#">Delivered</a></li>
+                                                <li><a class="dropdown-item py-2" href="#">Processing</a></li>
+                                                <li><a class="dropdown-item py-2" href="#">Cancel</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>                            
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="py-3">Order no</th>
+                                                <th scope="col" class="py-3">Customer Address</th>
+                                                <th scope="col" class="py-3">Name</th>
+                                                <th scope="col" class="py-3">Customer Phone</th>
+                                                <th scope="col" class="py-3">Method</th>
+                                                <th scope="col" class="py-3">Amount</th>
+                                                <th scope="col" class="py-3">Order time</th>
+                                                <th scope="col" class="py-3">Status</th>
+                                                <th scope="col" class="py-3">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for i in data %}
+                                            <tr>
+                                                <td>#BT{{i.id}}</td>
+                                                <td>{{i.first_name}}<br>{{i.address}},{{i.city}}<br>{{i.postal_code}}</td>
+                                                <td>{{i.full_name}}</td>
+                                                <td>{{i.phone}}</td>
+                                                <td>Online</td>
+                                                <td>{{i.total_price}}</td>
+                                                <td>{{i.created_at}}</td>
+                                               <td><span id="status-{{i.id}}" class="status-badge status-success">{{i.status}}</span></td>
+                                            <td>
+                                                <div class="mb-2 w-105">
+                                                    <select class="form-select border bg-light text-secondary rounded"
+                                                            aria-label="Order Status"
+                                                            onchange="updateOrderStatus({{ i.id }}, this.value)">
+                                                        <option value="Delivered" {% if i.status == 'Delivered' %}selected{% endif %}>Delivered</option>
+                                                        <option value="Processing" {% if i.status == 'Processing' %}selected{% endif %}>Processing</option>
+                                                        <option value="Cancel" {% if i.status == 'Cancel' %}selected{% endif %}>Cancel</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                                <td>
+                                                    <div class="dropdown w-25">
+                                                        <a class="nav-link px-3 pt-1 pb-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item py-2" href="/view_orders/{{i.id}}">View</a></li>
+                                                            <li><a class="dropdown-item py-2" href="/invoice/{{i.id}}">Invoice</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                          {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                            </div>
+                        </div>
+                         <!-- pagination -->
+                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                            <div>
+                              <p class="mt-4 mt-sm-4 mt-md-4 mt-lg-1 text-center text-md-start">Showing 1 - 20 of 121</p>
+                            </div>
+                            <ul class="pagination">
+                              <li><a href="#" class="pagination-link disabled" tabindex="-1">&lt;</a></li>
+                              <li><a href="#" class="pagination-link active">1</a></li>
+                              <li><a href="#" class="pagination-link">2</a></li>
+                              <li><a href="#" class="pagination-link">3</a></li>
+                              <li><a href="#" class="pagination-link">4</a></li>
+                              <li><a href="#" class="pagination-link">&gt;</a></li>
+                            </ul>
+                        </div>
+                        <!-- end pagination -->
+                    </div>
+                </div>
+           </div>
+             <div class="footer text-center bg-white shadow-sm py-3 mt-5">
+                   <p class="m-0">Copyright © 2024. All Rights Reserved. <a href="https://www.templaterise.com/" class="text-primary" target="_blank" >Themes By TemplateRise</a></p>
+             </div>
+        </div>
+    </div>
+     <!--**********************************
+        Main wrapper end
+    ***********************************-->
+    <script  src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script  src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script  src="{% static 'assets/plugin/chart/chart.js' %}"></script>
+    <script  src="{% static 'assets/js/chart.js' %}"></script>
+    <script  src="{% static 'assets/main.js' %}"></script>
+
+<script>
+function updateOrderStatus(orderId, newStatus) {
+    fetch('/update_order_status/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({ 'order_id': orderId, 'status': newStatus })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById("status-" + orderId).textContent = newStatus;
+        } else {
+            alert("Failed to update status.");
+        }
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+</script>
+</body>
+</html>

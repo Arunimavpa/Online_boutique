@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Ecom Admin  Bootstrap 5 Template" />
+	<meta property="og:title" content="Ecom Admin  Bootstrap 5 Template" />
+	<meta property="og:description" content="Ecom  Admin  Bootstrap 5 Template" />
+	<meta property="og:image" content="#" />
+	<meta name="format-detection" content="telephone=no">
+    <title>Product Add | MetroX Admin</title>
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/icons/fontawesome/css/fontawesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/icons/fontawesome/css/brands.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/icons/fontawesome/css/solid.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/plugin/tagify/css/tagify.css' %}" rel="stylesheet">
+</head>
+<body>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+     <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper" class="d-flex">
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+              <div class="sidebar">
+               <div class="collapse-sidebar d-none d-lg-block"><span><i class="fa-solid fa-chevron-left"></i></span></div>
+               <div class="sidebar-header">
+                   <div class="lg-logo"><a href="index.html"><img src="{% static 'assets/images/logo.png' %}" alt="logo large"></a></div>
+                   <div class="sm-logo"><a href="index.html"><img src="{% static 'assets/images/sm-logo.jpg' %}" alt="logo small"></a></div>
+               </div>
+               <div class="sidebar-body  custom-scrollbar">
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-label">    </li>
+                        <li><a href="index.html" class="text-black sidebar-link active"><i class="fa-solid fa-house"></i><p>Dashboard</p></a></li>
+                        <li><a href="#" class="text-black sidebar-link submenu-parent"><i class="fa-solid fa-list"></i><p>Category <i class="fa-solid fa-angle-down right-icon"></i></p></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="/category_add" class="submenu-link">Add</a></li>
+                                <li><a href="/category_list" class="submenu-link">List</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="text-black sidebar-link submenu-parent"><i class="fa-brands fa-microsoft"></i><p>Products <i class="fa-solid fa-angle-down right-icon"></i></p></a>
+                            <ul class="sidebar-submenu">
+                               <li><a href="/product_add" class="submenu-link">Add</a></li>
+                                <li><a href="/product_list" class="submenu-link">List</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="text-black sidebar-link submenu-parent"><i class="fa-solid fa-bucket"></i><p>Order <i class="fa-solid fa-angle-down right-icon"></i></p></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="/order_list" class="submenu-link">Order List</a></li>
+                                <li><a href="/completed_list" class="submenu-link">Completed</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/user_list" class="text-black sidebar-link"><i class="fa-regular fa-user"></i><p>Customers</p></a></li>
+
+                        <li><a href="/customized_orders" class="text-black sidebar-link"><i class="fa-regular fa-user"></i><p>Customized Orders</p></a></li>
+
+                          </ul>
+               </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <div class="content-wrapper">
+            <div class="header px-0 px-md-0 px-lg-3 pt-2 pt-sm-2 pt-md-2  pt-lg-4">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-6 col-lg-6 d-flex">
+                            <button class="menu-toggle btn btn-lg text-white d-block d-lg-none "><i class="fa-solid fa-bars"></i></button>
+                            <h1 class="header-title d-none d-lg-block ">Add Product</h1>
+                        </div>
+                        <div class="col-6 col-lg-6 d-flex justify-content-end">
+                            <div>
+                                <ul class="nav d-flex align-items-center">
+                                    <li class="nav-item">
+                                        <a class="nav-link notification notification-notify" href="#" id="Notification" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa-regular fa-bell"></i>
+                                        </a>
+                                        <div class="dropdown-menu" data-bs-popper="none">
+                                        <div id="Notification" class="h-380 scroll-y p-3 custom-scrollbar">
+                                            <ul class="timeline">
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2">
+                                                            <img alt="image" width="50" src="./assets/images/profile.png">
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1">Dr Halk Send you Photo</h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2 media-info">
+                                                            HK
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1">Resport created successfully</h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2 media-success">
+                                                            <i class="fa fa-home"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1">Reminder : Treatment Time!</h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                    <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2">
+                                                            <img alt="image" width="50" src="./assets/images/profile.png">
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1">Dr Halk Send you Photo</h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2 media-danger">
+                                                            HG
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1">Resport created successfully</h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-panel">
+                                                        <div class="media me-2 media-primary">
+                                                            <i class="fa fa-home"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6 class="mb-1">Reminder : Treatment Time!</h6>
+                                                            <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <a class="all-notification" href="#">See all notifications <i class="fas fa-arrow-right"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img src="./assets/images/profile.png" class="profile-img" alt="profile">
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li><a class="dropdown-item py-2" href="profile.html"><i class="fa-solid fa-user me-2 text-success"></i>Profile</a></li>
+                                        <li><a class="dropdown-item py-2" href="/Logout_admin"><i class="fa-solid fa-right-from-bracket me-2 text-danger"></i>Logout</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="product-section px-0 px-md-0 px-lg-3 mt-150">
+                    <div class="container">
+                         <form method="post" action="/save_product_variant/{{data.id}}" enctype="multipart/form-data">{% csrf_token %}
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card shadow-sm border-0 border-radius-12 mb-4">
+                                        <div class="card-header bg-white pt-3">
+                                            <h5 class="fw-normal text-start">Product Variant information</h5>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div>
+                                                <div class="row g-3">
+                                                    <div class="col-md-6">
+                                                    <label for="inputName" class="form-label">Color</label>
+                                                    <input type="text" class="form-control" id="inputName" name="color">
+                                                    </div>
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="card shadow-sm border-0 border-radius-12 mb-4">
+                                        <div class="card-header bg-white pt-3">
+                                            <h5 class="fw-normal text-start">Media</h5>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="file-upload-container">
+
+                                                <input id="fileInput" name="image" type="file"  />
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="col-12 col-lg-6 offset-lg-3">
+                                    <div class="card shadow-sm border-0 border-radius-12 mb-4">
+                                        <div class="card-body p-4 d-flex">
+                                            <a  href="javascript:void(0)" class="btn text-primary border-color hover-bg-primary w-50 me-2"> Discard</a>
+                                            <button type="submit" class="btn custom-bg-primary w-50 text-white btn-hover">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+           </div>
+             <div class="footer text-center bg-white shadow-sm py-3 mt-5">
+                   <p class="m-0">Copyright © 2024. All Rights Reserved. <a href="https://www.templaterise.com/" class="text-primary" target="_blank" >Themes By TemplateRise</a></p>
+             </div>
+        </div>
+    </div>
+     <!--**********************************
+        Main wrapper end
+    ***********************************-->
+    <script  src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script  src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script  src="{% static 'assets/plugin/chart/chart.js' %}"></script>
+    <script  src="{% static 'assets/js/chart.js' %}"></script>
+    <script  src="{% static 'assets/main.js' %}"></script>
+    <script src="{% static 'assets/plugin/ckeditor5/ckeditor.js' %}"></script>
+    <script src="{% static 'assets/plugin/tagify/js/tagify.js' %}"></script>
+    <script src="{% static 'assets/plugin/tagify/js/tagify.polyfills.min.js' %}"></script>
+</body>
+</html>

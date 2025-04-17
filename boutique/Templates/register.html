@@ -1,0 +1,175 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(90deg, #E8D9C9 0%, #A67B5B 50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Registration Form Section */
+    .registration_section {
+      width: 100%;
+      max-width: 400px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px 40px;
+      border: 2px solid #A67B5B;
+    }
+
+    .form_container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: #A67B5B;
+    }
+
+    /* Input Box */
+    .input_box {
+      margin-bottom: 20px;
+    }
+
+    .input_box input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #A67B5B;
+      border-radius: 5px;
+      outline: none;
+      background-color: #f9f3ef;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .input_box input:focus {
+      border-color: #995f31;
+      box-shadow: 0 0 5px rgba(166, 123, 91, 0.5);
+    }
+
+    /* Buttons */
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #A67B5B;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #995f31;
+      transform: translateY(-2px);
+    }
+
+    /* Redirect Link */
+    .login_redirect {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #333333;
+    }
+
+    .login_redirect a {
+      color: #A67B5B;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login_redirect a:hover {
+      color: #995f31;
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    // Client-side validation function
+    function validateForm(event) {
+      const fullName = document.forms["registerForm"]["full_name"].value;
+      const email = document.forms["registerForm"]["email"].value;
+      const phone = document.forms["registerForm"]["phone_no"].value;
+      const password = document.forms["registerForm"]["password"].value;
+      const confirmPassword = document.forms["registerForm"]["confirm_password"].value;
+
+      if (fullName == "" || email == "" || phone == "" || password == "" || confirmPassword == "") {
+        alert("All fields are required.");
+        event.preventDefault();
+        return false;
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.match(emailPattern)) {
+        alert("Invalid email format.");
+        event.preventDefault();
+        return false;
+      }
+
+      if (phone.length < 10 || isNaN(phone)) {
+        alert("Phone number must be at least 10 digits.");
+        event.preventDefault();
+        return false;
+      }
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        event.preventDefault();
+        return false;
+      }
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        event.preventDefault();
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+<body>
+
+  <section class="registration_section">
+    <div class="form_container">
+      <h2>Register</h2>
+      <form name="registerForm" action="/save_register/" method="POST" onsubmit="return validateForm(event);">{% csrf_token %}
+        <div class="input_box">
+          <input type="text" placeholder="Full Name" name="full_name" required>
+        </div>
+        <div class="input_box">
+          <input type="email" placeholder="Email Address" name="email" required>
+        </div>
+        <div class="input_box">
+          <input type="text" placeholder="Phone Number" name="phone_no" required>
+        </div>
+        <div class="input_box">
+          <input type="password" placeholder="Password" name="password" required>
+        </div>
+        <div class="input_box">
+          <input type="password" placeholder="Confirm Password" name="confirm_password" required>
+        </div>
+        <button type="submit" class="btn">Register</button>
+        <p class="login_redirect">Already have an account? <a href="/Login">Login here</a></p>
+      </form>
+    </div>
+  </section>
+
+</body>
+</html>
