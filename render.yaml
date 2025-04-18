@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: boutique-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn boutique.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: postgresql://onlineboutique_user:3PSwB00Drd1Sl5kPVGCG6CSVpd3fXYYQ@dpg-d011dkq4d50c73coll2g-a/onlineboutique
+        fromDatabase: online_boutique_db  # or your actual DB name in Render
