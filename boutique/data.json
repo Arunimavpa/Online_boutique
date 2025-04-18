@@ -1,0 +1,826 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$260000$9PFPD1tN317zBq9bKP8BAj$iybXLsjVoVqsjIA3tblavzxVVV+oeMNOy9GxPY9LAtw=",
+    "last_login": "2025-04-17T22:43:20.004Z",
+    "is_superuser": true,
+    "username": "Admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-02-10T00:58:08.587Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$LJtZONgRSgy9FLD8vIkDm9$6SY+p4M+m8PVn4U6s/m0F2vHKQ69T6XM1uDrCEN6+E0=",
+    "last_login": "2025-03-25T06:56:42.178Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-02-14T10:39:05.763Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "2ahmt7h5z0lw2znzfqj55jh5j9x2qi3o",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCgA1SX7nsGMsyAVA0kpV0Z765NutDtf-_9lwi4rSVsPS1hZnERRpx-t4j0SHUHfMd6a5JaXZc5yl2RB-1yapye18P9OyjYy7ceMuWBCAEzjCabNGgfsx2TxmidB8NoOSEojIQWMrizIgDnmZX1Xov3BxHtOIY:1titsy:8d5JwEdRaN_WJFniwgtlmT5cYHv9GWFTK-Rbzu1nk3o",
+    "expire_date": "2025-02-28T11:29:32.709Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6lps45kany5pss4t0co60x9ieuk2p6h0",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSE8CkNduu83kGEGpWogKe3K-O_apAvd3nPOfYmI21ri1vMSZxZnocXpd0tIj1x3wHestyap1XWZk9wVedAup8b5eTncv4OCvXxrdw1AYbQJhoFzQNJeMYAxKhEndjoTg4NsyHqFg9PAxlubFGlUDkfx_gDl0zfC:1tiKr8:QbKS7cDSmq0U3axVAxXc6hWtzDznyLlG543m3TMiZ0s",
+    "expire_date": "2025-02-26T22:05:18.377Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6uc4ftmvb97oslxpfybhxgweg9mpsbhj",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCgA1SX7nsGMsyAVA0kpV0Z765NutDtf-_9lwi4rSVsPS1hZnERRpx-t4j0SHUHfMd6a5JaXZc5yl2RB-1yapye18P9OyjYy7ceMuWBCAEzjCabNGgfsx2TxmidB8NoOSEojIQWMrizIgDnmZX1Xov3BxHtOIY:1tjx2t:9PUqukVM9-sDS6dhfcIEtQeUslC5Ghiy7-CcY1iIZk0",
+    "expire_date": "2025-03-03T09:04:07.146Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7itir4rergh80pseqvxkjvdktbfckrfn",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSE8CkNduu83kGEGpWogKe3K-O_apAvd3nPOfYmI21ri1vMSZxZnocXpd0tIj1x3wHestyap1XWZk9wVedAup8b5eTncv4OCvXxrdw1AYbQJhoFzQNJeMYAxKhEndjoTg4NsyHqFg9PAxlubFGlUDkfx_gDl0zfC:1trwJq:4utLpTTzfSv0HKgvHGZZdWtCjHCraXbSuZ7VQ5O-lto",
+    "expire_date": "2025-03-25T09:54:38.030Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "9ljss0wnvuppafdgubdwznlw7ndp5y5r",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCgA1SX7nsGMsyAVA0kpV0Z765NutDtf-_9lwi4rSVsPS1hZnERRpx-t4j0SHUHfMd6a5JaXZc5yl2RB-1yapye18P9OyjYy7ceMuWBCAEzjCabNGgfsx2TxmidB8NoOSEojIQWMrizIgDnmZX1Xov3BxHtOIY:1tkM7E:wnvnT8AY5ZR1Vra9OS_ZJJQEh8k-rC1wqYusb-CqUKo",
+    "expire_date": "2025-03-04T11:50:16.566Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bpyb4mxcatim6edd40bcgjbcnfl7113x",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSE8CkNduu83kGEGpWogKe3K-O_apAvd3nPOfYmI21ri1vMSZxZnocXpd0tIj1x3wHestyap1XWZk9wVedAup8b5eTncv4OCvXxrdw1AYbQJhoFzQNJeMYAxKhEndjoTg4NsyHqFg9PAxlubFGlUDkfx_gDl0zfC:1tijOP:6YWQnEweS3SvAjkLf6Bs7mqSO5-almjvexXzxWXwc6k",
+    "expire_date": "2025-02-28T00:17:17.683Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "c8ue92x1m6jo0jing1hx7qxosog9wirb",
+  "fields": {
+    "session_data": "eyJ1c2VyaWQiOjF9:1tsIAl:u0AgakLMNU4n0zI__SCHXbRar4nsjSY03vOn5K6CpbI",
+    "expire_date": "2025-03-26T09:14:43.139Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "dezeomcips5xywsegwypo2rkovasignf",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCgA1SX7nsGMsyAVA0kpV0Z765NutDtf-_9lwi4rSVsPS1hZnERRpx-t4j0SHUHfMd6a5JaXZc5yl2RB-1yapye18P9OyjYy7ceMuWBCAEzjCabNGgfsx2TxmidB8NoOSEojIQWMrizIgDnmZX1Xov3BxHtOIY:1tit6s:oXFQ8ThClmDJ8QWURHHM6lJyzD2B9bYZERHF7bI4yi0",
+    "expire_date": "2025-02-28T10:39:50.991Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "djc69xc6fb16jt603033op0v2nujbxlr",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCgA1SX7nsGMsyAVA0kpV0Z765NutDtf-_9lwi4rSVsPS1hZnERRpx-t4j0SHUHfMd6a5JaXZc5yl2RB-1yapye18P9OyjYy7ceMuWBCAEzjCabNGgfsx2TxmidB8NoOSEojIQWMrizIgDnmZX1Xov3BxHtOIY:1tjwxQ:dsEITqijvsJA72_qESPdif--_TEfjynjRzsrRUot5fE",
+    "expire_date": "2025-03-03T08:58:28.664Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hks8f9gaobq8l5npmoalo55cnimabf5k",
+  "fields": {
+    "session_data": "e30:1tradO:o5Sst03HHN8lCL6aNzfNkhyy-8ZhvNcvhAjIcR_rBNo",
+    "expire_date": "2025-03-24T10:45:22.911Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hwirjcabsy6uke7ibut783348su3dce5",
+  "fields": {
+    "session_data": ".eJxVjksOAiEQRO_C2hA-DYwu3XuGSdMNMmogmc_KeHeHZBa6rVf1Um8x4raWcVvSPE4sLsKI028WkZ6pdsAPrPcmqdV1nqLsFXnQRd4ap9f16P4JCi5lX9tM2RIhYIbBZJOsDjG7IWmMzgcwjI4TgsJI6CCDPysC8IFZuRD0Lu26ftF-vpLdO-8:1txSqL:SCuE60zsvh3ELmBmcRPvN575hlR3NujWwAiDkjm_oak",
+    "expire_date": "2025-04-09T15:39:01.819Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ifs02k34nkhz8fqpb8w4t7lir7gu5uxp",
+  "fields": {
+    "session_data": "e30:1tp1Jv:lkeePto0tST3n5eCjmJx0dgLcnJiYX1XfCX3KVtoXQ4",
+    "expire_date": "2025-03-17T08:38:39.782Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ok0pz5wghpz71nro9r0eakfecp35nv6j",
+  "fields": {
+    "session_data": "eyJ1c2VyaWQiOjJ9:1tu7Ge:bLqLBpKI6Ubw3MKdwHoba6GGhobuBenRbx-mKeyMztM",
+    "expire_date": "2025-03-31T10:00:20.718Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "p5ey3jfnzsxq1f5ql6e4yhc1s7s6jdkm",
+  "fields": {
+    "session_data": "eyJ1c2VyaWQiOjF9:1trsQS:_jqNX0SlBFvj0rLafy_QLReAsV4cqVJvsJ9yP2E1jSY",
+    "expire_date": "2025-03-25T05:45:12.936Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "py9033daf0z8ql3ph3ray86ea0erqb2d",
+  "fields": {
+    "session_data": "eyJ1c2VyaWQiOjF9:1tsDX7:xoMu_FbALoJgUwuNoVsCv1jdX56e7_4XxhNe0tlhf1I",
+    "expire_date": "2025-03-26T04:17:29.481Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qe10xlqc3kynh76k8wr00isdoieb1tc0",
+  "fields": {
+    "session_data": ".eJxVjjsOwjAQRO_iGln-r0NJzxmi9a7BAWRL-VSIuxNLKaCdN_M0bzHitpZxW_I8TizOQovTb5aQnrl2wA-s9yap1XWekuwVedBFXhvn1-Xo_gkKLmVf-1sEioNN4BzniKSDYgBjVCJO7HUmBg_ZkA0KndfAJlibFGlUHodd2nX9ov58AV5iOyk:1tsFHr:D5YR3bPOjlXaoWHuJ2KLUIXt_uuuJa4ec6EYI6xRu2I",
+    "expire_date": "2025-03-26T06:09:51.338Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qkgy0izoikqyk355u4oa4ujq5kp17xu7",
+  "fields": {
+    "session_data": "e30:1trgn5:3cGQzplVexGZW7k50HaE6w5YaBinnGOQP2Rls-mqL2w",
+    "expire_date": "2025-03-24T17:19:47.451Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "r0mny17e7ll4mawyhtmshs63h1xek04d",
+  "fields": {
+    "session_data": ".eJxVjsEOgjAQRP-lZ9Owpbhdj979hmbbXQQ1kFA4Gf9dmnDQ67yZl3mbyNs6xK3oEkcxFwPm9Jslzk-dKpAHT_fZ5nlalzHZWrEHLfY2i76uR_dPMHAZ9nVDhD51IUMGIe8UW-iQE4hKaDILc98R9krqzwEDE2d0Sg4YsAm6S6uuXmw_X2GFO38:1u5Y35:euWm4VzYK7vYTeOXq1W7x_gm9KAmN5_xtnKT_tYTT2w",
+    "expire_date": "2025-05-01T22:49:35.400Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "tcsu7r0vvp6vec8zxkl22ovehqn7dsgs",
+  "fields": {
+    "session_data": ".eJxVjjsOwjAQRO_iGln-r0NJzxmi9a7BAWRL-VSIuxNLKaCdN_M0bzHitpZxW_I8TizOQovTb5aQnrl2wA-s9yap1XWekuwVedBFXhvn1-Xo_gkKLmVf-1sEioNN4BzniKSDYgBjVCJO7HUmBg_ZkA0KndfAJlibFGlUHodd2nX9ov58AV5iOyk:1ts3x5:kxMGTOyUD3PONSISS39V2ap7_f1_07_YYjKfVni9tmU",
+    "expire_date": "2025-03-25T18:03:39.869Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "v9gfcpq9yfs4pvjlwoemoxw8b4k0qryo",
+  "fields": {
+    "session_data": ".eJxVjjsOwjAQRO_iGln-r0NJzxmi9a7BAWRL-VSIuxNLKaCdN_M0bzHitpZxW_I8TizOQovTb5aQnrl2wA-s9yap1XWekuwVedBFXhvn1-Xo_gkKLmVf-1sEioNN4BzniKSDYgBjVCJO7HUmBg_ZkA0KndfAJlibFGlUHodd2nX9ov18AV5mOys:1tyjS0:0GgBuBZvFPiICh1KAzFHx5YgFE8wAup2tAscWY_6lps",
+    "expire_date": "2025-04-13T03:35:08.990Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "viyxiedofutc7yjnu3fqm6p2te9kaze3",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCgA1SX7nsGMsyAVA0kpV0Z765NutDtf-_9lwi4rSVsPS1hZnERRpx-t4j0SHUHfMd6a5JaXZc5yl2RB-1yapye18P9OyjYy7ceMuWBCAEzjCabNGgfsx2TxmidB8NoOSEojIQWMrizIgDnmZX1Xov3BxHtOIY:1tsgXQ:5x8EQJ7RW_IBchOewUgILcNpeKcF3sNxx0iqwRYFTYM",
+    "expire_date": "2025-03-27T11:15:44.869Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "xefml2d9rta8znnbnouehimkqfijhgf8",
+  "fields": {
+    "session_data": "eyJ1c2VyaWQiOjF9:1trrf3:N-DHPXscV4JG1foPGtouAvigp_72tt2e87LQFBA4Vb8",
+    "expire_date": "2025-03-25T04:56:13.113Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "y8k3aurkzpxfzkwuenx6vytp34ip2i57",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCgA1SX7nsGMsyAVA0kpV0Z765NutDtf-_9lwi4rSVsPS1hZnERRpx-t4j0SHUHfMd6a5JaXZc5yl2RB-1yapye18P9OyjYy7ceMuWBCAEzjCabNGgfsx2TxmidB8NoOSEojIQWMrizIgDnmZX1Xov3BxHtOIY:1tmmFf:ikJhQpCnIN2St7opI6QXJhPOaruBKbybxaZPXM2U3IM",
+    "expire_date": "2025-03-11T04:08:59.432Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "yhjd2jx82qw9xk0s1c2kmnxwq1eacna7",
+  "fields": {
+    "session_data": "eyJ1c2VyaWQiOjF9:1ts6Ai:UkY3rmmz7HCPGdz_ULtRfLC0LM_1TBljUyaY67F6PoE",
+    "expire_date": "2025-03-25T20:25:52.654Z"
+  }
+},
+{
+  "model": "online.tbl_category_add",
+  "pk": 1,
+  "fields": {
+    "name": "lehanga",
+    "status": "Active",
+    "image": "media/a-1.webp"
+  }
+},
+{
+  "model": "online.tbl_category_add",
+  "pk": 2,
+  "fields": {
+    "name": "Gown",
+    "status": "Active",
+    "image": "media/a-2.webp"
+  }
+},
+{
+  "model": "online.tbl_product",
+  "pk": 1,
+  "fields": {
+    "name": "ODETTE",
+    "product_id": "LG001",
+    "image": "media/odette_JZkxbem.webp",
+    "category": 1,
+    "description": "Embroidered Ready to Wear Lehenga & Blouse With Dupatta",
+    "stock": 10,
+    "original_price": 6999.0,
+    "offer_price": 2800.0,
+    "color": null,
+    "fabric": "Organza",
+    "Pattern": "Embroidered and printed",
+    "WashCare": "Hand Wash Or Dry Clean",
+    "size": "xxl, xl, l, m, s, xs",
+    "created_at": "2025-03-03T14:15:59.133Z",
+    "updated_at": "2025-03-18T14:57:28.904Z"
+  }
+},
+{
+  "model": "online.tbl_product",
+  "pk": 2,
+  "fields": {
+    "name": "GOWN",
+    "product_id": " GN001",
+    "image": "media/maroon_gown.webp",
+    "category": 2,
+    "description": "Burgundy solid knitted maxi dress, has a V-neck, long sleeves, and straight hem",
+    "stock": 13,
+    "original_price": 1699.0,
+    "offer_price": 1000.0,
+    "color": "maroon",
+    "fabric": "Velvet",
+    "Pattern": "Solid",
+    "WashCare": "Hand Wash Or Dry Clean",
+    "size": "xxl, xl, l, m, s, xs",
+    "created_at": "2025-03-03T14:38:56.051Z",
+    "updated_at": "2025-03-26T15:40:47.411Z"
+  }
+},
+{
+  "model": "online.tbl_product",
+  "pk": 3,
+  "fields": {
+    "name": "gown",
+    "product_id": "GN002",
+    "image": "media/ethnic_ADnkof3.jpg",
+    "category": 2,
+    "description": "Sequinned Embellished Gown",
+    "stock": 0,
+    "original_price": 5000.0,
+    "offer_price": 3500.0,
+    "color": null,
+    "fabric": "Georgette",
+    "Pattern": "",
+    "WashCare": "Dry clean",
+    "size": "l, m, s, xs",
+    "created_at": "2025-03-03T23:42:19.709Z",
+    "updated_at": "2025-03-04T23:18:04.718Z"
+  }
+},
+{
+  "model": "online.tbl_product",
+  "pk": 4,
+  "fields": {
+    "name": "Fabcartz ",
+    "product_id": "LG003",
+    "image": "media/green.webp",
+    "category": 1,
+    "description": "Embroidered Zari Work Semi-Stitched Lehenga With Unstitched Blouse & Dupatta",
+    "stock": 8,
+    "original_price": 3500.0,
+    "offer_price": 2901.0,
+    "color": "Green",
+    "fabric": "Art silk",
+    "Pattern": "",
+    "WashCare": "Dry clean",
+    "size": "Free Size",
+    "created_at": "2025-03-13T03:57:11.667Z",
+    "updated_at": "2025-03-25T06:14:09.514Z"
+  }
+},
+{
+  "model": "online.tbl_productvariant",
+  "pk": 1,
+  "fields": {
+    "product": 2,
+    "color": "green",
+    "image": "media/green_gown.webp",
+    "created_at": "2025-03-03T14:39:19.946Z",
+    "updated_at": "2025-03-03T14:39:19.946Z"
+  }
+},
+{
+  "model": "online.tbl_productvariant",
+  "pk": 2,
+  "fields": {
+    "product": 3,
+    "color": "green",
+    "image": "media/green_gown_d7clh8M.webp",
+    "created_at": "2025-03-03T23:43:00.334Z",
+    "updated_at": "2025-03-03T23:43:00.334Z"
+  }
+},
+{
+  "model": "online.tbl_productvariant",
+  "pk": 3,
+  "fields": {
+    "product": 4,
+    "color": "maroon",
+    "image": "media/meroon.webp",
+    "created_at": "2025-03-13T03:57:41.210Z",
+    "updated_at": "2025-03-13T03:57:41.210Z"
+  }
+},
+{
+  "model": "online.tbl_register",
+  "pk": 1,
+  "fields": {
+    "name": "arunima",
+    "email": "vineethamonichen44@gmail.com",
+    "mobile": 9496170099,
+    "password": "arunima123",
+    "created_at": "2025-03-04T00:38:34.888Z",
+    "updated_at": "2025-03-12T04:17:11.223Z"
+  }
+},
+{
+  "model": "online.tbl_register",
+  "pk": 2,
+  "fields": {
+    "name": "sarala uk",
+    "email": "saralaajith@gmail.com",
+    "mobile": 9496170099,
+    "password": "saralaajith",
+    "created_at": "2025-03-12T10:30:01.417Z",
+    "updated_at": "2025-03-12T10:30:01.417Z"
+  }
+},
+{
+  "model": "online.tbl_register",
+  "pk": 3,
+  "fields": {
+    "name": "maya",
+    "email": "maya2002@gmail.com",
+    "mobile": 7669904999,
+    "password": "maya123",
+    "created_at": "2025-03-12T16:48:31.701Z",
+    "updated_at": "2025-03-12T16:48:31.701Z"
+  }
+},
+{
+  "model": "online.tbl_register",
+  "pk": 4,
+  "fields": {
+    "name": "Aparna",
+    "email": "aparna@gmail.com",
+    "mobile": 9099898768,
+    "password": "aparna@123",
+    "created_at": "2025-03-17T05:13:45.293Z",
+    "updated_at": "2025-03-17T05:13:45.293Z"
+  }
+},
+{
+  "model": "online.tbl_register",
+  "pk": 5,
+  "fields": {
+    "name": "blessy",
+    "email": "blessyvt23@gmail.com",
+    "mobile": 7025790931,
+    "password": "blessyvt",
+    "created_at": "2025-03-18T15:48:07.131Z",
+    "updated_at": "2025-03-18T15:48:07.131Z"
+  }
+},
+{
+  "model": "online.tbl_register",
+  "pk": 6,
+  "fields": {
+    "name": "Ahna",
+    "email": "ahnaajan2001@gmail.com",
+    "mobile": 8281772820,
+    "password": "ahna123",
+    "created_at": "2025-03-25T06:00:20.358Z",
+    "updated_at": "2025-03-25T06:00:20.358Z"
+  }
+},
+{
+  "model": "online.tbl_cart",
+  "pk": 52,
+  "fields": {
+    "product": 4,
+    "user": 4,
+    "session_key": null,
+    "quantity": 1,
+    "size": "Free Size",
+    "color": "maroon",
+    "image": "/media/media/meroon.webp",
+    "created_at": "2025-03-17T05:35:45.390Z",
+    "updated_at": "2025-03-17T05:35:45.438Z"
+  }
+},
+{
+  "model": "online.tbl_cart",
+  "pk": 53,
+  "fields": {
+    "product": 2,
+    "user": 1,
+    "session_key": "",
+    "quantity": 1,
+    "size": "xxl",
+    "color": "green",
+    "image": "/media/media/green_gown.webp",
+    "created_at": "2025-03-17T05:37:04.248Z",
+    "updated_at": "2025-03-17T05:37:21.101Z"
+  }
+},
+{
+  "model": "online.tbl_cart",
+  "pk": 54,
+  "fields": {
+    "product": 1,
+    "user": 1,
+    "session_key": "",
+    "quantity": 1,
+    "size": "xxl",
+    "color": null,
+    "image": "",
+    "created_at": "2025-03-17T05:38:53.796Z",
+    "updated_at": "2025-03-17T05:39:26.475Z"
+  }
+},
+{
+  "model": "online.tbl_cart",
+  "pk": 76,
+  "fields": {
+    "product": 2,
+    "user": 3,
+    "session_key": null,
+    "quantity": 1,
+    "size": "xxl",
+    "color": "green",
+    "image": "/media/media/green_gown.webp",
+    "created_at": "2025-03-30T03:36:18.010Z",
+    "updated_at": "2025-03-30T03:36:18.176Z"
+  }
+},
+{
+  "model": "online.tbl_cart",
+  "pk": 77,
+  "fields": {
+    "product": 2,
+    "user": 3,
+    "session_key": "",
+    "quantity": 1,
+    "size": "m",
+    "color": "green",
+    "image": "/media/media/green_gown.webp",
+    "created_at": "2025-04-17T22:47:10.236Z",
+    "updated_at": "2025-04-17T22:49:35.369Z"
+  }
+},
+{
+  "model": "online.order",
+  "pk": 8,
+  "fields": {
+    "user": 2,
+    "full_name": "sarala uk",
+    "address": "vallomparabath panikkaseril house lokamaleswaram kdlr",
+    "city": "kodungallur",
+    "postal_code": "680664",
+    "phone": "9496170099",
+    "total_price": "2800.00",
+    "created_at": "2025-03-18T14:57:28.871Z",
+    "status": "Ordered",
+    "p_date": null,
+    "d_date": null
+  }
+},
+{
+  "model": "online.order",
+  "pk": 9,
+  "fields": {
+    "user": 3,
+    "full_name": "maya",
+    "address": "manjaly",
+    "city": "paravur",
+    "postal_code": "680654",
+    "phone": "9378486899",
+    "total_price": "2901.00",
+    "created_at": "2025-03-24T08:41:19.702Z",
+    "status": "Ordered",
+    "p_date": null,
+    "d_date": null
+  }
+},
+{
+  "model": "online.order",
+  "pk": 10,
+  "fields": {
+    "user": 5,
+    "full_name": "blessy vt",
+    "address": "cheriya veetil house",
+    "city": "north paravur",
+    "postal_code": "680654",
+    "phone": "702579093",
+    "total_price": "1000.00",
+    "created_at": "2025-03-25T04:56:54.077Z",
+    "status": "Processing",
+    "p_date": "2025-03-24T18:30:00Z",
+    "d_date": null
+  }
+},
+{
+  "model": "online.order",
+  "pk": 11,
+  "fields": {
+    "user": 5,
+    "full_name": "blessy vt",
+    "address": "cheriya veetil house",
+    "city": "north paravur",
+    "postal_code": "680654",
+    "phone": "7025790931",
+    "total_price": "2901.00",
+    "created_at": "2025-03-25T06:14:09.434Z",
+    "status": "Ordered",
+    "p_date": null,
+    "d_date": null
+  }
+},
+{
+  "model": "online.order",
+  "pk": 12,
+  "fields": {
+    "user": 3,
+    "full_name": "maya",
+    "address": "vallomparabath (house) p.o manjaly",
+    "city": "paravur",
+    "postal_code": "680654",
+    "phone": "9378486899",
+    "total_price": "1000.00",
+    "created_at": "2025-03-26T15:40:47.385Z",
+    "status": "Ordered",
+    "p_date": null,
+    "d_date": null
+  }
+},
+{
+  "model": "online.orderitem",
+  "pk": 7,
+  "fields": {
+    "order": 8,
+    "product": 1,
+    "quantity": 1,
+    "price": "2800.00",
+    "size": "m",
+    "color": null,
+    "image": ""
+  }
+},
+{
+  "model": "online.orderitem",
+  "pk": 8,
+  "fields": {
+    "order": 9,
+    "product": 4,
+    "quantity": 1,
+    "price": "2901.00",
+    "size": "Free Size",
+    "color": "maroon",
+    "image": "/media/media/meroon.webp"
+  }
+},
+{
+  "model": "online.orderitem",
+  "pk": 9,
+  "fields": {
+    "order": 10,
+    "product": 2,
+    "quantity": 1,
+    "price": "1000.00",
+    "size": "xxl",
+    "color": "green",
+    "image": "/media/media/green_gown.webp"
+  }
+},
+{
+  "model": "online.orderitem",
+  "pk": 10,
+  "fields": {
+    "order": 11,
+    "product": 4,
+    "quantity": 1,
+    "price": "2901.00",
+    "size": "Free Size",
+    "color": "Green",
+    "image": "/media/media/green.webp"
+  }
+},
+{
+  "model": "online.orderitem",
+  "pk": 11,
+  "fields": {
+    "order": 12,
+    "product": 2,
+    "quantity": 1,
+    "price": "1000.00",
+    "size": "xl",
+    "color": "green",
+    "image": "/media/media/green_gown.webp"
+  }
+},
+{
+  "model": "online.tbl_contact",
+  "pk": 1,
+  "fields": {
+    "Name": "Arunima",
+    "phone_no": 7559905999,
+    "email": "arunimaajithvp14@gmail.com",
+    "message": "for an appointment"
+  }
+},
+{
+  "model": "online.customdressorder",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "dress_name": "summerDress",
+    "fabric": "cotton",
+    "color": "Red",
+    "size": "L",
+    "neck_design": "halter",
+    "custom_neck_design": "",
+    "bust": 32.0,
+    "waist": 30.0,
+    "hips": 26.0,
+    "length": 44.0,
+    "delivery_date": "2025-03-21",
+    "reference_image": "dress_references/Screenshot_1_6o2xeEf.png",
+    "additional_details": "testing",
+    "created_at": "2025-03-11T18:29:54.127Z",
+    "status": "Reject",
+    "total_cost": null,
+    "advance": null,
+    "payment_status": null,
+    "work_status": "Pending"
+  }
+},
+{
+  "model": "online.customdressorder",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "dress_name": "summerDress",
+    "fabric": "cotton",
+    "color": "red",
+    "size": "XS",
+    "neck_design": "v-neck",
+    "custom_neck_design": "",
+    "bust": 32.0,
+    "waist": 28.0,
+    "hips": 33.0,
+    "length": 44.0,
+    "delivery_date": "2025-03-21",
+    "reference_image": "dress_references/red_3WydrSl.jpg",
+    "additional_details": "sleeves should be like the image",
+    "created_at": "2025-03-12T17:27:10.025Z",
+    "status": "Approved",
+    "total_cost": null,
+    "advance": null,
+    "payment_status": null,
+    "work_status": "Processing"
+  }
+},
+{
+  "model": "online.customdressorder",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "dress_name": "eveningGown",
+    "fabric": "silk",
+    "color": "red",
+    "size": "XS",
+    "neck_design": "round",
+    "custom_neck_design": "",
+    "bust": 32.0,
+    "waist": 28.0,
+    "hips": 33.0,
+    "length": 44.0,
+    "delivery_date": "2025-03-28",
+    "reference_image": "dress_references/red_IFNbREZ.jpg",
+    "additional_details": "",
+    "created_at": "2025-03-12T17:29:36.756Z",
+    "status": "Reject",
+    "total_cost": null,
+    "advance": null,
+    "payment_status": null,
+    "work_status": "Pending"
+  }
+},
+{
+  "model": "online.customdressorder",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "dress_name": "summerDress",
+    "fabric": "cotton",
+    "color": "blue",
+    "size": "XS",
+    "neck_design": "square",
+    "custom_neck_design": "",
+    "bust": 32.0,
+    "waist": 28.0,
+    "hips": 30.0,
+    "length": 45.0,
+    "delivery_date": "2025-03-20",
+    "reference_image": "dress_references/red_R42gdNx.jpg",
+    "additional_details": "",
+    "created_at": "2025-03-13T04:42:21.232Z",
+    "status": "Approved",
+    "total_cost": 30000.0,
+    "advance": 10000.0,
+    "payment_status": "Full Payment Completed",
+    "work_status": "Delivered"
+  }
+},
+{
+  "model": "online.customdressorder",
+  "pk": 5,
+  "fields": {
+    "user": 5,
+    "dress_name": "eveningGown",
+    "fabric": "chiffon",
+    "color": "blue",
+    "size": "XS",
+    "neck_design": "v-neck",
+    "custom_neck_design": "",
+    "bust": 32.0,
+    "waist": 30.0,
+    "hips": 38.0,
+    "length": 47.0,
+    "delivery_date": "2025-03-25",
+    "reference_image": "dress_references/blue_gownn.jpg",
+    "additional_details": "",
+    "created_at": "2025-03-18T15:49:03.516Z",
+    "status": "Approved",
+    "total_cost": 2150.0,
+    "advance": 750.0,
+    "payment_status": "Full Payment Completed",
+    "work_status": "Delivered"
+  }
+},
+{
+  "model": "online.customdressorder",
+  "pk": 6,
+  "fields": {
+    "user": 3,
+    "dress_name": "summerDress",
+    "fabric": "cotton",
+    "color": "Red",
+    "size": "XS",
+    "neck_design": "v-neck",
+    "custom_neck_design": "",
+    "bust": 32.0,
+    "waist": 36.0,
+    "hips": 38.0,
+    "length": 47.0,
+    "delivery_date": "2025-04-03",
+    "reference_image": "dress_references/red_A1CkjqN.jpg",
+    "additional_details": "",
+    "created_at": "2025-03-26T15:47:48.780Z",
+    "status": "Approved",
+    "total_cost": 2000.0,
+    "advance": 950.0,
+    "payment_status": "Full Payment Completed",
+    "work_status": "Delivered"
+  }
+}
+]
