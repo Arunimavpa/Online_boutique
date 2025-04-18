@@ -1,29 +1,12 @@
-# render.yaml
-# Place at the very top level of your project (beside manage.py)
-
+# render.yaml  – keep everything else the same
 services:
   - type: web
-    name: online-boutique
+    name: online_boutique
     env: python
-    plan: free             # or “starter”, “standard”…
-    # build your code, install deps, and collect static files
     buildCommand: |
       pip install -r requirements.txt
+    releaseCommand: |
+      python manage.py migrate --noinput
       python manage.py collectstatic --noinput
-    # start your Django app
-    startCommand: gunicorn boutique.wsgi:application --bind 0.0.0.0:${PORT}
-    # point Render at a Postgres add‑on, or manually supply your DATABASE_URL
-    envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: your‑postgres‑addon
-      - key: SECRET_KEY
-        value: your‑super‑secret‑key
-      - key: DEBUG
-        value: 'False'
-      - key: ALLOWED_HOSTS
-        value: online‑boutique.onrender.com
-      - key: EMAIL_HOST_USER
-        value: you@example.com
-      - key: EMAIL_HOST_PASSWORD
-        value: your‑app‑password
+    startCommand: |
+      gunicorn boutique.wsgi:application --bind 0.0.0.0:$PORT
